@@ -2,9 +2,7 @@
 
 return array(
     'application' => array(
-        'modelsDir' => __DIR__ . '/../../app/models/',
         'layoutDir' => APPLICATION_PATH . '/layouts/',
-        'pluginsDir' => __DIR__ . '/../../app/plugins/',
         'cacheDir' => APPLICATION_PATH . '/cache/',
         'baseUri' => '/',
     ),
@@ -19,9 +17,7 @@ return array(
         ),
     ),
     'registerDirs' => array(
-        APPLICATION_PATH . '/../vendor/',
         APPLICATION_PATH . '/../library/',
-        APPLICATION_PATH . '/../vendor/ZF2/library/',
     ),
     'error' => array(
         'logger' => new \Phalcon\Logger\Adapter\File(APPLICATION_PATH . '/logs/' . APPLICATION_ENV . '.log'),
