@@ -11,6 +11,9 @@
         "ext-json": "*",
         "zaets28rus/phalcony": "0.1.x-dev"
     },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "1.5.2"
+    },
     "authors": [
         {
             "name": "Patsura Dmitry",

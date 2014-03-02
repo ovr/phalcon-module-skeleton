@@ -8,8 +8,7 @@ namespace App;
 
 use Phalcon\Mvc\View;
 
-class Application
-    extends \Phalcony\Application
+class Application extends \Phalcony\Application
 {
     protected function initView()
     {
@@ -17,7 +16,7 @@ class Application
 
         $view->setLayoutsDir($this->configuration['application']['layoutDir']);
         $view->registerEngines(array(
-            '.phtml' => 'Phalcon\Mvc\View\Engine\Php'
+                '.phtml' => 'Phalcon\Mvc\View\Engine\Php'
         ));
 
         return $view;
