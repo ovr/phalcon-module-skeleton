@@ -24,8 +24,10 @@ class Module
 
         $eventsManager = $di->get('eventsManager');
 
-        $eventsManager->attach("dispatch:beforeException", function($event, $dispatcher, $exception) {
-
+        $eventsManager->attach("dispatch:beforeException", function ($event, $dispatcher, $exception) {
+            /**
+             * @todo and move it to global
+             */
         });
         $dispatcher->setEventsManager($eventsManager);
         $di->set('dispatcher', $dispatcher);
