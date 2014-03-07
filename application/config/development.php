@@ -24,12 +24,36 @@ return array(
             'class' => '\Phalcon\Logger\Adapter\File',
             '__construct' => APPLICATION_PATH . '/logs/' . APPLICATION_ENV . '.log'
         ),
-        'router' => array(
-            'class' => '\Phalcon\Mvc\Router',
+        'url' => array(
+            'class' => '\Phalcon\Mvc\Url',
             'parameters' => array(
-                'defaultController' => 'error',
-                'defaultAction' => 'index',
-                'defaultModule' => 'frontend'
+                'baseUri' => '/'
+            )
+        ),
+        'router' => array(
+            'class' => function () {
+
+                $router = new \Phalcon\Mvc\Router();
+
+                $router->add('/:module/:controller/:action/:params', array(
+                    'module' => 1,
+                    'controller' => 2,
+                    'action' => 3,
+                    'params' => 4
+                ));
+
+                $router->notFound(array(
+                    'module' => 'frontend',
+                    'namespace' => 'Frontend\Controller',
+                    'controller' => 'index',
+                    'action' => 'index'
+                ));
+
+                $router->setDefaultNamespace('Frontend\Controller');
+                return $router;
+            },
+            'parameters' => array(
+                'uriSource' => Phalcon\Mvc\Router::URI_SOURCE_SERVER_REQUEST_URI
             )
         ),
         'view' => array(

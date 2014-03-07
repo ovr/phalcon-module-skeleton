@@ -19,22 +19,25 @@ class Module
 
     public function registerServices($di)
     {
-        $di->set('dispatcher', function () {
-            $dispatcher = new \Phalcon\Mvc\Dispatcher();
-            $dispatcher->setDefaultNamespace('Frontend\Controller');
-            return $dispatcher;
+        $dispatcher = $di->get('dispatcher');
+        $dispatcher->setDefaultNamespace('Frontend\Controller');
+
+        $eventsManager = $di->get('eventsManager');
+
+        $eventsManager->attach("dispatch:beforeException", function($event, $dispatcher, $exception) {
+
         });
+        $dispatcher->setEventsManager($eventsManager);
+        $di->set('dispatcher', $dispatcher);
 
         /**
          * @var \Phalcon\Mvc\View
          */
         $view = $di->get('view');
+        $view->setLayout('index');
+        $view->setViewsDir(APPLICATION_PATH . '/modules/frontend/views/');
+        $view->setLayoutsDir('../../common/layouts/');
 
-        $di->set('view', function () use ($view) {
-            $view->setLayout('index');
-            $view->setViewsDir(APPLICATION_PATH . '/modules/frontend/views/');
-            $view->setLayoutsDir('../../common/layouts/');
-            return $view;
-        });
+        $di->set('view', $view);
     }
 }
