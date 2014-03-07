@@ -1,3 +1,5 @@
 composer.lock
 .idea/
 vendor/
+node_modules/
+public/vendor/

@@ -1,0 +1,22 @@
+{
+  "name": "phalcon-module-phalcony-skeleton",
+  "version": "0.0.0",
+  "description": "Phalcony Module Skeleton\r ========\r [![Build Status](https://travis-ci.org/zaets28rus/phalcon-module-phalcony-skeleton.png?branch=master)](https://travis-ci.org/zaets28rus/phalcon-module-phalcony-skeleton)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zaets28rus/phalcon-module-phalcony-skeleton.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaets28rus/phalcon-module-phalcony-skeleton/issues"
+  },
+  "homepage": "https://github.com/zaets28rus/phalcon-module-phalcony-skeleton",
+  "devDependencies": {
+    "bower": "^1.2.8"
+  }
+}
