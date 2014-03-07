@@ -1,0 +1,20 @@
+{
+  "name": "phalcon-module-phalcony-skeleton",
+  "version": "0.0.0",
+  "homepage": "https://github.com/zaets28rus/phalcon-module-phalcony-skeleton",
+  "authors": [
+    "Дмитрий Пацура <zaets28rus@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1"
+  }
+}
