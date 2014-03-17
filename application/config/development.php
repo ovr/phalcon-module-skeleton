@@ -32,7 +32,6 @@ return array(
         ),
         'router' => array(
             'class' => function () {
-
                 $router = new \Phalcon\Mvc\Router();
 
                 $router->add('/:module/:controller/:action/:params', array(
@@ -49,7 +48,6 @@ return array(
                     'action' => 'index'
                 ));
 
-                $router->setDefaultNamespace('Frontend\Controller');
                 return $router;
             },
             'parameters' => array(
@@ -71,8 +69,6 @@ return array(
         )
     ),
     'application' => array(
-        'cacheDir' => APPLICATION_PATH . '/cache/',
-        'baseUri' => '/',
         'registerDirs' => array(
             APPLICATION_PATH . '/../library/',
         ),
