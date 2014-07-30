@@ -9,7 +9,8 @@
     "require": {
         "php": "~5.3",
         "ext-json": "*",
-        "ovr/phalcony": "0.1.x-dev"
+        "ovr/phalcony": "0.1.x-dev",
+        "phalcon/devtools": "dev-master"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "1.5.2"
