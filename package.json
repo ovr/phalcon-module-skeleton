@@ -1,22 +1,28 @@
 {
-  "name": "phalcon-module-phalcony-skeleton",
+  "name": "phalcon-module-skeleton",
   "version": "0.0.0",
-  "description": "Phalcony Module Skeleton\r ========\r [![Build Status](https://travis-ci.org/zaets28rus/phalcon-module-phalcony-skeleton.png?branch=master)](https://travis-ci.org/zaets28rus/phalcon-module-phalcony-skeleton)",
+  "description": "Phalcony Module Skeleton\r ========\r [![Build Status](https://travis-ci.org/ovr/phalcon-module-skeleton.png?branch=master)](https://travis-ci.org/ovr/phalcon-module-skeleton)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/zaets28rus/phalcon-module-phalcony-skeleton.git"
+    "url": "git://github.com/ovr/phalcon-module-skeleton.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zaets28rus/phalcon-module-phalcony-skeleton/issues"
+    "url": "https://github.com/ovr/phalcon-module-skeleton/issues"
   },
-  "homepage": "https://github.com/zaets28rus/phalcon-module-phalcony-skeleton",
-  "devDependencies": {
-    "bower": "^1.2.8"
+  "homepage": "https://github.com/ovr/phalcon-module-skeleton",
+  "dependencies": {
+    "bower": "^1.3.6",
+    "gulp": "^3.8.5",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.2.1",
+    "gulp-util": "^2.2.19"
   }
 }

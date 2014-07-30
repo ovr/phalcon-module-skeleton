@@ -1,7 +1,7 @@
 {
-  "name": "phalcon-module-phalcony-skeleton",
+  "name": "phalcon-module-skeleton",
   "version": "0.0.0",
-  "homepage": "https://github.com/ovr/phalcon-module-skeleton",
+  "homepage": "https://github.com/zaets28rus/phalcon-module-phalcony-skeleton",
   "authors": [
     "Дмитрий Пацура <zaets28rus@gmail.com>"
   ],
@@ -10,11 +10,11 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "public/vendor",
+    "public/src/vendor",
     "test",
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.1.1"
+    "bootstrap": "~3.2.0"
   }
 }
