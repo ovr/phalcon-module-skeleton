@@ -1,6 +1,7 @@
 {
-    "name": "ovr/phalcon-module-phalcony-skeleton",
-    "description": "Example for easy start with Phalcon 1.3 + Phalcony.",
+    "name": "ovr/phalcon-module-skeleton",
+    "description": "Example for easy start with Phalcon + Phalcony sublib.",
+    "url": "https://github.com/ovr/phalcon-module-skeleton",
     "license": "MIT",
     "keywords": [
         "framework",
