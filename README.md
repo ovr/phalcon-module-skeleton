@@ -1,8 +1,13 @@
-Phalcony Module Skeleton
+Phalcon Module Skeleton
 ========
-[![Build Status](https://travis-ci.org/ovr/phalcon-module-phalcony-skeleton.png?branch=master)](https://travis-ci.org/ovr/phalcon-module-phalcony-skeleton)
+[![Build Status](https://travis-ci.org/ovr/phalcon-module-skeleton.png?branch=master)](https://travis-ci.org/ovr/phalcon-module-skeleton)
 
 Example how to use Phalcon + Phalcony with modules structure.
+
+Online Demo
+-----------
+
+You can see online demo on [phalcon-module.dmtry.me](http://phalcon-module.dmtry.me/).
 
 License
 -------
