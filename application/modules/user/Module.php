@@ -5,7 +5,7 @@
 
 namespace User;
 
-class Module
+class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
 {
     public function registerAutoloaders()
     {
