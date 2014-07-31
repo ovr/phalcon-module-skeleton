@@ -38,6 +38,6 @@ class IndexController extends Controller
             throw new Exception('User was deleted', 404);
         }
 
-        $this->user = $user;
+        $this->view->user = $user;
     }
 }

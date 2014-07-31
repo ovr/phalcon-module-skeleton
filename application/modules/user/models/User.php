@@ -77,4 +77,13 @@ class User extends \Phalcon\Mvc\Model
     {
         $this->dateCreated = $dateCreated;
     }
+
+    public function getUsername()
+    {
+        if ($this->lastname) {
+            return $this->firstname . ' ' . $this->lastname;
+        }
+
+        return $this->firstname;
+    }
 }

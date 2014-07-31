@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8">
+                        <h2><?php echo $user->getUsername(); ?></h2>
+                        <h3><a href="http://github.com/<?php echo $user->nick; ?>" target="_blank">@<?php echo $user->nick; ?></a></h3>
+                    </div><!--/col-->
+                    <div class="col-xs-12 col-sm-4 text-center">
+                        <img src="/static/user/<?php echo $user->id; ?>.jpg" alt="" class="center-block img-circle img-responsive">
+                    </div><!--/col-->
+                </div><!--/row-->
+            </div><!--/panel-body-->
+        </div><!--/panel-->
+    </div>
+</div>
