@@ -19,6 +19,26 @@ return array(
                 'baseUri' => '/'
             )
         ),
+        'modelsMetadata' => array(
+            'class' => function() {
+                $metaData = new \Phalcon\Mvc\Model\MetaData\Memory();
+                $metaData->setStrategy(new \Engine\Db\Model\Annotations\Metadata());
+
+                return $metaData;
+            }
+        ),
+        'modelsManager' => array(
+            'class' => function($di) {
+                $eventsManager = $di->get('eventsManager');
+
+                $modelsManager = new \Phalcon\Mvc\Model\Manager();
+                $modelsManager->setEventsManager($eventsManager);
+
+                $eventsManager->attach('modelsManager', new \Engine\Db\Model\Annotations\Initializer());
+
+                return $modelsManager;
+            }
+        ),
         'router' => array(
             'class' => function () {
                 $router = new Router();
