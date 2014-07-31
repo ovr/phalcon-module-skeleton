@@ -20,7 +20,7 @@ return array(
             )
         ),
         'modelsMetadata' => array(
-            'class' => function() {
+            'class' => function () {
                 $metaData = new \Phalcon\Mvc\Model\MetaData\Memory();
                 $metaData->setStrategy(new \Engine\Db\Model\Annotations\Metadata());
 
@@ -28,7 +28,7 @@ return array(
             }
         ),
         'modelsManager' => array(
-            'class' => function($di) {
+            'class' => function ($di) {
                 $eventsManager = $di->get('eventsManager');
 
                 $modelsManager = new \Phalcon\Mvc\Model\Manager();
