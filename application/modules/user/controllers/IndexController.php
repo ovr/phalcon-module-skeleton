@@ -12,10 +12,12 @@ use User\Model\User;
  */
 class IndexController extends Controller
 {
-    public function viewAction()
+    /**
+     * @param integer $id
+     * @throws \Phalcon\Exception
+     */
+    public function viewAction($id)
     {
-        $id = $this->dispatcher->getParam('id', 'int', 0);
-
         if ($id <= 0) {
             throw new Exception('Wrong id passed', 404);
         }
