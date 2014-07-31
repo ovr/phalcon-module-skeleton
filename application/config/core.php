@@ -30,6 +30,12 @@ return array(
                     'params' => 4
                 ));
 
+                $router->add('/user/{id:([0-9]{1,32})}/:params', array(
+                    'module' => 'user',
+                    'controller' => 'index',
+                    'action' => 'view',
+                ))->setName('user-index-view');
+
                 $router->notFound(array(
                     'module' => 'frontend',
                     'namespace' => 'Frontend\Controller',
@@ -72,6 +78,10 @@ return array(
             'admin' => array(
                 'className' => 'Admin\Module',
                 'path' => APPLICATION_PATH . '/modules/admin/Module.php',
+            ),
+            'user' => array(
+                'className' => 'User\Module',
+                'path' => APPLICATION_PATH . '/modules/user/Module.php',
             ),
         )
     )

@@ -11,8 +11,8 @@ class Module
     {
         $loader = new \Phalcon\Loader();
         $loader->registerNamespaces(array(
-            'User\Controller' => APPLICATION_PATH . '/modules/user/controllers/',
-            'User\Model' => APPLICATION_PATH . '/modules/user/models/',
+            'User\Controller' => APPLICATION_PATH . '/modules/frontend/controllers/',
+            'User\Model' => APPLICATION_PATH . '/modules/frontend/models/',
         ));
         $loader->register();
     }
@@ -37,7 +37,7 @@ class Module
          */
         $view = $di->get('view');
         $view->setLayout('index');
-        $view->setViewsDir(APPLICATION_PATH . '/modules/user/views/');
+        $view->setViewsDir(APPLICATION_PATH . '/modules/users/views/');
         $view->setLayoutsDir('../../common/layouts/');
 
         $di->set('view', $view);
