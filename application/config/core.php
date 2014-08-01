@@ -43,6 +43,14 @@ return array(
             'class' => function () {
                 $router = new Router(false);
 
+                $router->add('/admin/:params', array(
+                    'module' => 'admin',
+                    'controller' => 'index',
+                    'action' => 'index',
+                    'params' => 1
+                ))->setName('admin');
+
+
                 $router->add('/:module/:controller/:action/:params', array(
                     'module' => 1,
                     'controller' => 2,
