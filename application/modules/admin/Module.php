@@ -3,7 +3,7 @@
  * @author Patsura Dmitry <zaets28rus@gmail.com>
  */
 
-namespace User;
+namespace Admin;
 
 class Module
 {
@@ -11,8 +11,8 @@ class Module
     {
         $loader = new \Phalcon\Loader();
         $loader->registerNamespaces(array(
-            'User\Controller' => APPLICATION_PATH . '/modules/frontend/controllers/',
-            'User\Model' => APPLICATION_PATH . '/modules/frontend/models/',
+            'Admin\Controller' => APPLICATION_PATH . '/modules/admin/controllers/',
+            'Admin\Model' => APPLICATION_PATH . '/modules/admin/models/',
         ));
         $loader->register();
     }
@@ -20,7 +20,7 @@ class Module
     public function registerServices($di)
     {
         $dispatcher = $di->get('dispatcher');
-        $dispatcher->setDefaultNamespace('User\Controller');
+        $dispatcher->setDefaultNamespace('Admin\Controller');
 
         $eventsManager = $di->get('eventsManager');
 
@@ -37,7 +37,7 @@ class Module
          */
         $view = $di->get('view');
         $view->setLayout('index');
-        $view->setViewsDir(APPLICATION_PATH . '/modules/users/views/');
+        $view->setViewsDir(APPLICATION_PATH . '/modules/admin/views/');
         $view->setLayoutsDir('../../common/layouts/');
 
         $di->set('view', $view);
