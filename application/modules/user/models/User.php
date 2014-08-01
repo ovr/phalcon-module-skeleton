@@ -15,6 +15,7 @@ class User extends \Phalcon\Mvc\Model
 {
     /**
      * @Id
+     * @Identity
      * @GeneratedValue
      * @Primary
      * @Column(type="integer")
