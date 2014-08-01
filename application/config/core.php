@@ -41,7 +41,7 @@ return array(
         ),
         'router' => array(
             'class' => function () {
-                $router = new Router();
+                $router = new Router(false);
 
                 $router->add('/:module/:controller/:action/:params', array(
                     'module' => 1,
