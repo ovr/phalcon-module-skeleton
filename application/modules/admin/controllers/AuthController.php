@@ -13,6 +13,8 @@ class AuthController extends Controller
 
     public function loginAction()
     {
+        $form = new \Admin\Form\Login();
 
+        $this->view->form = $form;
     }
 }

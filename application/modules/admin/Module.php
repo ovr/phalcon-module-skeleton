@@ -13,6 +13,7 @@ class Module
         $loader->registerNamespaces(array(
             'Admin\Controller' => APPLICATION_PATH . '/modules/admin/controllers/',
             'Admin\Model' => APPLICATION_PATH . '/modules/admin/models/',
+            'Admin\Form' => APPLICATION_PATH . '/modules/admin/forms/'
         ));
         $loader->register();
     }
