@@ -89,15 +89,12 @@ return array(
             'parameters' => array(
                 'layoutsDir' => APPLICATION_PATH . '/layouts/'
             )
+        ),
+        'auth' => array(
+            'class' => '\App\Service\Auth'
         )
     ),
     'application' => array(
-        'registerDirs' => array(
-            APPLICATION_PATH . '/../library/',
-        ),
-        'registerNamespaces' => array(
-            'Service' => APPLICATION_PATH . '/services/'
-        ),
         'modules' => array(
             'frontend' => array(
                 'className' => 'Frontend\Module',
