@@ -50,6 +50,26 @@ return array(
                     'params' => 1
                 ))->setName('admin');
 
+                $router->add('/:module/:params', array(
+                    'module' => 1,
+                    'controller' => 'index',
+                    'action' => 'index',
+                    'params' => 2
+                ));
+
+                $router->add('/:module/:controller/:params', array(
+                    'module' => 1,
+                    'controller' => 2,
+                    'action' => 'index',
+                    'params' => 3
+                ));
+
+                $router->add('/:module/:controller/:params', array(
+                    'module' => 1,
+                    'controller' => 2,
+                    'action' => 'index',
+                    'params' => 3
+                ));
 
                 $router->add('/:module/:controller/:action/:params', array(
                     'module' => 1,
