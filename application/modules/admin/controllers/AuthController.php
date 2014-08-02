@@ -11,13 +11,13 @@ use Admin\Form\Login;
  */
 class AuthController extends Controller
 {
-    public function initialize()
-    {
-        $this->view->setLayout('empty-layout');
-    }
-
+    /**
+     * Login action
+     */
     public function loginAction()
     {
+        $this->view->setLayout('empty-layout');
+
         $form = new Login();
 
         if ($this->request->isPost()) {
@@ -39,5 +39,18 @@ class AuthController extends Controller
         }
 
         $this->view->form = $form;
+    }
+
+    /**
+     * Logout action
+     */
+    public function logoutAction()
+    {
+        $this->view->setRenderLevel(\Phalcon\Mvc\View::LEVEL_NO_RENDER);
+
+        $this->session->start();
+        $this->session->destroy();
+
+        $this->response->redirect();
     }
 }
