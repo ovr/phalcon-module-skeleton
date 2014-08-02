@@ -13,6 +13,8 @@ Features
 
 * Easy application bootstrapping
 * Console task support (by symfony/console)
+* Bootstrap themes
+* Full develop stuck composer/npm/bower/gulp
 * Modules structure
 * Pre-installed modules
  * Admin
