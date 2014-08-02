@@ -13,7 +13,7 @@ class IndexController extends Controller
         $this->identity = $this->di->get('auth')->getIdentity();
 
         if (!$this->identity) {
-            $this->response->redirect('/admin/auth/login', true);
+            $this->response->redirect('/admin/auth/login', true)->send();
         }
     }
 
