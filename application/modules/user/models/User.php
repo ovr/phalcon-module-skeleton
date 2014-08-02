@@ -10,6 +10,10 @@ namespace User\Model;
  * @package User\Model
  *
  * @Source("User__Users")
+ *
+ * @BelongsTo("group_id", '\User\Model\Group', "id", {
+ *  "alias": "Group"
+ * })
  */
 class User extends \Phalcon\Mvc\Model
 {
@@ -72,11 +76,24 @@ class User extends \Phalcon\Mvc\Model
     public $deleted;
 
     /**
+     * @Column(type="integer", nullable=false, name="group_id", size="11")
+     */
+    public $group_id;
+
+    /**
      * @param string $dateCreated
      */
     public function setDateCreated($dateCreated)
     {
         $this->dateCreated = $dateCreated;
+    }
+
+    /**
+     * @return \Phalcon\Mvc\Model\ResultsetInterface
+     */
+    public function getGroup()
+    {
+        return $this->getRelated('Group');
     }
 
     public function getUsername()

@@ -11,6 +11,7 @@ class IndexController extends Controller
     public function initialize()
     {
         $this->identity = $this->di->get('auth')->getIdentity();
+        
         if (!$this->identity) {
             $this->response->redirect('/admin/auth/login', true);
         }
