@@ -6,7 +6,7 @@
 namespace User\Model;
 
 /**
- * Class Groups
+ * Class Group
  * @package User\Model
  *
  * @Source("User__Groups")
