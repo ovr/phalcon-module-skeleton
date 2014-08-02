@@ -31,11 +31,96 @@
         <h1>
 <a name="phalcon-module-skeleton" class="anchor" href="#phalcon-module-skeleton"><span class="octicon octicon-link"></span></a>Phalcon Module Skeleton</h1>
 
-<p><a href="https://travis-ci.org/ovr/phalcon-module-skeleton"><img src="https://travis-ci.org/ovr/phalcon-module-skeleton.png?branch=master" alt="Build Status"></a></p>
+<p><a href="https://travis-ci.org/ovr/phalcon-module-skeleton"><img src="https://travis-ci.org/ovr/phalcon-module-skeleton.png?branch=master" alt="Build Status"></a>
+<a href="https://packagist.org/packages/ovr/phalcon-module-skeleton/"><img src="https://poser.pugx.org/ovr/phalcon-module-skeleton/license.svg" alt="License"></a></p>
 
-<p>Example how to use Phalcon + Phalcony with modules structure.</p>
+<p>This is a skeleton application written on <a href="https://github.com/phalcon/cphalcon">phalcon framework</a> with performance boost.
+This project can be used to develop projects with phalcon framework by easy way.</p>
+
+<p>For current time project in under development, have fun :)</p>
 
 <h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Easy application bootstrapping</li>
+<li>Console task support (by symfony/console)</li>
+<li>Bootstrap themes</li>
+<li>Full develop stuck composer/npm/bower/gulp</li>
+<li>Modules structure</li>
+<li>Pre-installed modules
+
+<ul>
+<li>Admin
+
+<ul>
+<li>Dashboard</li>
+<li>GRUD for Users and Products</li>
+<li>Settings</li>
+</ul>
+</li>
+<li>Catalog
+
+<ul>
+<li>Index page</li>
+<li>Category page</li>
+<li>Product page
+
+<ul>
+<li>Comments</li>
+<li>Buy</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Cart
+
+<ul>
+<li>Index cart page</li>
+<li>Models/Service</li>
+</ul>
+</li>
+<li>Oauth</li>
+<li>User
+
+<ul>
+<li>View user page</li>
+<li>Models/Service</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bootstrap file</li>
+</ul><h2>
+<a name="how-to-install" class="anchor" href="#how-to-install"><span class="octicon octicon-link"></span></a>How to install</h2>
+
+<p>First you need to clone the project, update vendors:</p>
+
+<pre><code>git clone https://github.com/ovr/phalcon-module-skeleton.git ./project
+cd project
+composer update
+</code></pre>
+
+<p>Install vhost for your virtual server:</p>
+
+<pre><code>cp ./docs/example-configs/nginx.phalcony.local.conf /etc/nginx/sites-enabled/you.host.conf
+</code></pre>
+
+<p>Don`t forget to edit nginx config and restart nginx:</p>
+
+<pre><code>nano /etc/nginx/sites-enabled/you.host.conf
+sudo service nginx restart
+</code></pre>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>PHP 5.3 and up</li>
+<li>Phalcon <strong>1.3.2</strong> (maybe it works on phalcon 2.0.0)</li>
+<li>Phalcony (latest)</li>
+<li>PhalconEye/Framework (latest)</li>
+</ul><h2>
 <a name="online-demo" class="anchor" href="#online-demo"><span class="octicon octicon-link"></span></a>Online Demo</h2>
 
 <p>You can see online demo on <a href="http://phalcon-module.dmtry.me/">phalcon-module.dmtry.me</a>.</p>
