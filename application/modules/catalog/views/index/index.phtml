@@ -7,17 +7,9 @@
             </div>
             <div class="panel-body">
                 <ul id="cat-navi2" class="nav nav-list ">
-                    <li class="active"><a href="#">Active category</a></li>
-                    <li><a href="#">Category title</a></li>
-                    <li><a href="#">Category title</a></li>
-                    <li><a href="#">Category title</a></li>
-                    <li><a href="#">Category title</a></li>
-                    <li><a href="#">Category title</a></li>
-                    <li><a href="#">Category title</a></li>
-                    <li><a href="#">Category title</a></li>
-                    <li><a href="#">Category title</a></li>
-                    <li><a href="#">Category title</a></li>
-                    <li><a href="#">Category title</a></li>
+                    <?php foreach ($categories as $category) : ?>
+                        <li><a href="#"><?php echo $category->title; ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
@@ -67,160 +59,29 @@
 
     <!-- CONTENT SIDE-->
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-        <div class="container-folio row">
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                <div class="thumbnail">
-                    <!-- IMAGE CONTAINER-->
-                    <img src="images/thumb.jpg" alt="post image">
-                    <!--END IMAGE CONTAINER-->
-                    <!-- CAPTION -->
-                    <div class="caption">
-                        <h3 class="">Product title</h3>
-                        <p class="">This project presents beautiful style graphic &amp; design. Bootstraptor provides modern features</p>
+        <?php foreach ($products as $product) : ?>
+            <div class="container-folio row">
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <div class="thumbnail">
+                        <img src="http://placehold.it/250x250" alt="post image">
+                        <div class="caption">
+                            <h3 class=""><?php echo $product->title; ?></h3>
+                            <p class="">This project presents beautiful style graphic &amp; design. Bootstraptor provides modern features</p>
 
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <p class="lead">$21.000</p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <a class="btn btn-success btn-block" href="#">Add to cart</a>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <p class="lead">$<?php echo $product->price; ?></p>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <a class="btn btn-success btn-block" href="#">Add to cart</a>
+                                </div>
                             </div>
                         </div>
+                        <!--END CAPTION -->
                     </div>
-                    <!--END CAPTION -->
+                    <!-- END: THUMBNAIL -->
                 </div>
-                <!-- END: THUMBNAIL -->
             </div>
-            <!-- PROD. ITEM -->
-
-            <!-- PROD. ITEM -->
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                <div class="thumbnail">
-                    <!-- IMAGE CONTAINER-->
-                    <img src="images/thumb.jpg" alt="post image">
-                    <!--END IMAGE CONTAINER-->
-                    <!-- CAPTION -->
-                    <div class="caption">
-                        <h3 class="">Product title</h3>
-                        <p class="">This project presents beautiful style graphic &amp; design. Bootstraptor provides modern features</p>
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <p class="lead">$21.000</p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <a class="btn btn-success btn-block" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--END CAPTION -->
-                </div>
-                <!-- END: THUMBNAIL -->
-            </div>
-            <!-- PROD. ITEM -->
-
-            <!-- PROD. ITEM -->
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                <div class="thumbnail">
-                    <!-- IMAGE CONTAINER-->
-                    <img src="images/thumb.jpg" alt="post image">
-                    <!--END IMAGE CONTAINER-->
-                    <!-- CAPTION -->
-                    <div class="caption">
-                        <h3 class="">Product title</h3>
-                        <p class="">This project presents beautiful style graphic &amp; design. Bootstraptor provides modern features</p>
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <p class="lead">$21.000</p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <a class="btn btn-success btn-block" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--END CAPTION -->
-                </div>
-                <!-- END: THUMBNAIL -->
-            </div>
-            <!-- PROD. ITEM -->
-
-            <!-- PROD. ITEM -->
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                <div class="thumbnail">
-                    <!-- IMAGE CONTAINER-->
-                    <img src="images/thumb.jpg" alt="post image">
-                    <!--END IMAGE CONTAINER-->
-                    <!-- CAPTION -->
-                    <div class="caption">
-                        <h3 class="">Product title</h3>
-                        <p class="">This project presents beautiful style graphic &amp; design. Bootstraptor provides modern features</p>
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <p class="lead">$21.000</p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <a class="btn btn-success btn-block" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--END CAPTION -->
-                </div>
-                <!-- END: THUMBNAIL -->
-            </div>
-            <!-- PROD. ITEM -->
-
-            <!-- PROD. ITEM -->
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                <div class="thumbnail">
-                    <!-- IMAGE CONTAINER-->
-                    <img src="images/thumb.jpg" alt="post image">
-                    <!--END IMAGE CONTAINER-->
-                    <!-- CAPTION -->
-                    <div class="caption">
-                        <h3 class="">Product title</h3>
-                        <p class="">This project presents beautiful style graphic &amp; design. Bootstraptor provides modern features</p>
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <p class="lead">$21.000</p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <a class="btn btn-success btn-block" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--END CAPTION -->
-                </div>
-                <!-- END: THUMBNAIL -->
-            </div>
-            <!-- PROD. ITEM -->
-
-            <!-- PROD. ITEM -->
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-                <div class="thumbnail">
-                    <!-- IMAGE CONTAINER-->
-                    <img src="images/thumb.jpg" alt="post image">
-                    <!--END IMAGE CONTAINER-->
-                    <!-- CAPTION -->
-                    <div class="caption">
-                        <h3 class="">Product title</h3>
-                        <p class="">This project presents beautiful style graphic &amp; design. Bootstraptor provides modern features</p>
-
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <p class="lead">$21.000</p>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <a class="btn btn-success btn-block" href="#">Add to cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!--END CAPTION -->
-                </div>
-                <!-- END: THUMBNAIL -->
-                </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </div>

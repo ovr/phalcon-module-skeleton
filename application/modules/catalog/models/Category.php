@@ -3,13 +3,13 @@
  * @author Patsura Dmitry <zaets28rus@gmail.com>
  */
 
-namespace User\Model;
+namespace Catalog\Model;
 
 /**
  * Class Category
  * @package User\Model
  *
- * @Source("User__Categories")
+ * @Source("Catalog__Categories")
  */
 class Category extends \Phalcon\Mvc\Model
 {
