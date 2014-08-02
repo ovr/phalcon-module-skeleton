@@ -20,7 +20,7 @@ class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
     public function registerServices($di)
     {
         $dispatcher = $di->get('dispatcher');
-        $dispatcher->setDefaultNamespace('User\Controller');
+        $dispatcher->setDefaultNamespace('Catalog\Controller');
 
         $eventsManager = $di->get('eventsManager');
 

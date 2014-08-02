@@ -102,7 +102,7 @@ return array(
             ),
             'catalog' => array(
                 'className' => 'Catalog\Module',
-                'path' => APPLICATION_PATH . '/modules/Catalog/Module.php',
+                'path' => APPLICATION_PATH . '/modules/catalog/Module.php',
             ),
             'admin' => array(
                 'className' => 'Admin\Module',
