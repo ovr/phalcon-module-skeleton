@@ -100,6 +100,10 @@ return array(
                 'className' => 'Frontend\Module',
                 'path' => APPLICATION_PATH . '/modules/frontend/Module.php',
             ),
+            'catalog' => array(
+                'className' => 'Catalog\Module',
+                'path' => APPLICATION_PATH . '/modules/Catalog/Module.php',
+            ),
             'admin' => array(
                 'className' => 'Admin\Module',
                 'path' => APPLICATION_PATH . '/modules/admin/Module.php',
