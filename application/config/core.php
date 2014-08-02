@@ -19,6 +19,9 @@ return array(
                 'baseUri' => '/'
             )
         ),
+        'tag' => array(
+            'class' => '\App\Tag'
+        ),
         'modelsMetadata' => array(
             'class' => function () {
                 $metaData = new \Phalcon\Mvc\Model\MetaData\Memory();
@@ -76,7 +79,7 @@ return array(
                     'controller' => 2,
                     'action' => 3,
                     'params' => 4
-                ));
+                ))->setName('default');
 
                 $router->add('/user/{id:([0-9]{1,32})}/:params', array(
                     'module' => 'user',
