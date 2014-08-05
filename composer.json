@@ -12,7 +12,8 @@
         "ext-json": "*",
         "ovr/phalcony": "~0.1.3",
         "phalcon/devtools": "dev-master",
-        "phalconeye/framework": "0.5.*@dev"
+        "phalconeye/framework": "0.5.*@dev",
+        "symfony/console": "*"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "1.5.2"
