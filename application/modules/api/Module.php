@@ -5,6 +5,8 @@
 
 namespace Api;
 
+use Phalcony\Rest\Dispatcher;
+
 class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
 {
     public function registerAutoloaders()
@@ -19,7 +21,10 @@ class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
 
     public function registerServices($di)
     {
-        $dispatcher = $di->get('dispatcher');
+        $dispatcher = new Dispatcher();
+        $dispatcher->setDI($di);
         $dispatcher->setDefaultNamespace('Api\Controller');
+
+        $di->set('dispatcher', $dispatcher);
     }
 }
