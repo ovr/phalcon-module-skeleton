@@ -131,6 +131,10 @@ return array(
                 'className' => 'Admin\Module',
                 'path' => APPLICATION_PATH . '/modules/admin/Module.php',
             ),
+            'api' => array(
+                'className' => 'Api\Module',
+                'path' => APPLICATION_PATH . '/modules/api/Module.php',
+            ),
             'user' => array(
                 'className' => 'User\Module',
                 'path' => APPLICATION_PATH . '/modules/user/Module.php',
