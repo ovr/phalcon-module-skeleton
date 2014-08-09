@@ -11,5 +11,5 @@ define('APPLICATION_ENV', getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') 
 require_once APPLICATION_PATH . "/../vendor/autoload.php";
 $config = include APPLICATION_PATH . "/config/".APPLICATION_ENV.".php";
 
-$application = new \App\Application(APPLICATION_ENV, $config);
+$application = new \Phalcony\Application(APPLICATION_ENV, $config);
 $application->bootstrap()->run();

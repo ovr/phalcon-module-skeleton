@@ -12,7 +12,7 @@ use App\Console\Command\SettingsUpdate;
 use App\Console\Application;
 
 $config = include APPLICATION_PATH . "/config/".APPLICATION_ENV.".php";
-$application = new \App\Application(APPLICATION_ENV, $config);
+$application = new \Phalcony\Application(APPLICATION_ENV, $config);
 $application->bootstrap();
 
 $consoleApplication = new Application($application);
