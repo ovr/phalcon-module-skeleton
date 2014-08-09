@@ -4,37 +4,36 @@ Phalcon Module Skeleton
 [![License](https://poser.pugx.org/ovr/phalcon-module-skeleton/license.svg)](https://packagist.org/packages/ovr/phalcon-module-skeleton/)
 
 This is a skeleton application written on [phalcon framework](https://github.com/phalcon/cphalcon) with performance boost.
-This project can be used to develop projects with phalcon framework by easy way.
+This project created to develop applications in easy way.
  
-For current time project in under development, have fun :)
+For current time project is under development, have fun :)
 
 Features
 --------
 
 * Easy application bootstrapping
-* Console task support (by symfony/console)
-* Bootstrap themes
-* Full develop stuck composer/npm/bower/gulp
+* Console task support (provided by symfony/console)
+* Bootstrap theme
+* Full frontend developer stuck composer/npm/bower/gulp
 * Modules structure
 * Pre-installed modules
  * Admin
     * Dashboard
-    * GRUD for Users and Products
-    * Settings
+    * GRUD for Users and Products (future)
+    * Settings (future)
  * Catalog
     * Index page
-    * Category page
-    * Product page
+    * Category page (future)
+    * Product page (future)
         * Comments
         * Buy
- * Cart
+ * Cart (future)
     * Index cart page
     * Models/Service
  * Oauth
  * User
     * View user page
     * Models/Service
-* Bootstrap file
 
 How to install
 --------------
@@ -75,4 +74,5 @@ You can see online demo on [phalcon-module.dmtry.me](http://phalcon-module.dmtry
 
 License
 -------
+
 This project is open-sourced software licensed under the MIT License. See the LICENSE file for more information.
