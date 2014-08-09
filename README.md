@@ -48,11 +48,13 @@ composer update
 ```
 
 Install vhost for your virtual server:
+
 ```
 cp ./docs/example-configs/nginx.phalcony.local.conf /etc/nginx/sites-enabled/you.host.conf
 ```
 
 Don`t forget to edit nginx config and restart nginx:
+
 ```
 nano /etc/nginx/sites-enabled/you.host.conf
 sudo service nginx restart
