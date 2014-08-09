@@ -17,6 +17,10 @@ Features
 * Full frontend developer stuck composer/npm/bower/gulp
 * Modules structure
 * Pre-installed modules
+ * Api [src](./application/modules/api)
+    * Index
+    * Users
+        * Get [Test url](http://phalcon-module.dmtry.me/api/users/get/2/) [src](./application/modules/api/Controllers/UsersController.php)
  * Admin
     * Dashboard
     * GRUD for Users and Products (future)
