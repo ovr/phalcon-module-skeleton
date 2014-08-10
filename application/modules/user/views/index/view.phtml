@@ -8,7 +8,7 @@
                         <h3><a href="http://github.com/<?php echo $user->nick; ?>" target="_blank">@<?php echo $user->nick; ?></a></h3>
                     </div><!--/col-->
                     <div class="col-xs-12 col-sm-4 text-center">
-                        <img src="/static/user/<?php echo $user->id; ?>.jpg" alt="" class="center-block img-circle img-responsive">
+                        <img src="<?php echo $this->tag->userPhotoUrl($user); ?>" alt="<?php echo $user->getUsername(); ?>" class="center-block img-circle img-responsive">
                     </div><!--/col-->
                 </div><!--/row-->
             </div><!--/panel-body-->
