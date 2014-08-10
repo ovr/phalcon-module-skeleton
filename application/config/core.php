@@ -30,6 +30,40 @@ return array(
                 return $metaData;
             }
         ),
+        'dispatcher' => array(
+            'class' => function($di) {
+                $evManager = $di->getShared('eventsManager');
+
+                $evManager->attach('dispatch:beforeException',  function($event, $dispatcher, $exception) use(&$di)  {
+                    if (!class_exists('Frontend\Module')) {
+                        include_once APPLICATION_PATH . '/modules/frontend/Module.php';
+                        $module = new Frontend\Module();
+                        $module->registerServices($di);
+                        $module->registerAutoloaders($di);
+                    }
+
+                    /**
+                     * @var $dispatcher \Phalcon\Mvc\Dispatcher
+                     */
+                    $dispatcher->setModuleName('frontend');
+
+                    $dispatcher->forward(
+                        array(
+                            'namespace' => 'Frontend\Controller',
+                            'module' => 'frontend',
+                            'controller' => 'error',
+                            'action'     => 'index',
+                            'error' => $exception
+                        )
+                    );
+                    return false;
+                });
+
+                $dispatcher = new \Phalcon\Mvc\Dispatcher();
+                $dispatcher->setEventsManager($evManager);
+                return $dispatcher;
+            }
+        ),
         'modelsManager' => array(
             'class' => function ($di) {
                 $eventsManager = $di->get('eventsManager');
