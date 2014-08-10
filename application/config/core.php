@@ -35,6 +35,7 @@ return array(
                 $evManager = $application->getDI()->getShared('eventsManager');
 
                 $evManager->attach('dispatch:beforeException',  function($event, $dispatcher, $exception) use(&$di)  {
+                    var_dump($exception);
                     if (!class_exists('Frontend\Module')) {
                         include_once APPLICATION_PATH . '/modules/frontend/Module.php';
                         $module = new Frontend\Module();
@@ -79,14 +80,16 @@ return array(
         'router' => array(
             'class' => function ($application) {
                 $router = new Router(false);
-
-                $router->setDefaultModule('index');
-                $router->setDefaultController('index');
-                $router->setDefaultAction('index');
+                
+                $router->add('/', array(
+                    'module' => 'frontend',
+                    'controller' => 'index',
+                    'action' => 'index'
+                ))->setName('default');
 
                 foreach($application->getModules() as $key => $module) {
                     $router->add('/'.$key.'/:params', array(
-                        'module' => 'admin',
+                        'module' => $key,
                         'controller' => 'index',
                         'action' => 'index',
                         'params' => 1
@@ -104,7 +107,7 @@ return array(
                         'controller' => 1,
                         'action' => 2,
                         'params' => 3
-                    ))->setName('default');
+                    ));
                 }
 
                 $router->add('/user/{id:([0-9]{1,32})}/:params', array(
