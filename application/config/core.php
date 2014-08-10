@@ -15,7 +15,9 @@ return array(
         ),
         'url' => array(
             'class' => '\Phalcon\Mvc\Url',
-            'parameters' => $parameters['url']
+            'parameters' => array(
+                'baseUri' => '/'
+            )
         ),
         'tag' => array(
             'class' => '\App\Tag'
@@ -29,10 +31,10 @@ return array(
             }
         ),
         'dispatcher' => array(
-            'class' => function ($application) {
+            'class' => function($application) {
                 $evManager = $application->getDI()->getShared('eventsManager');
 
-                $evManager->attach('dispatch:beforeException', function ($event, $dispatcher, $exception) use (&$di) {
+                $evManager->attach('dispatch:beforeException',  function($event, $dispatcher, $exception) use(&$di)  {
                     if (!class_exists('Frontend\Module')) {
                         include_once APPLICATION_PATH . '/modules/frontend/Module.php';
                         $module = new Frontend\Module();
@@ -64,7 +66,7 @@ return array(
         ),
         'modelsManager' => array(
             'class' => function ($application) {
-                $eventsManager = $application->getDI()->getShared('eventsManager');
+                $eventsManager = $application->getDI()->get('eventsManager');
 
                 $modelsManager = new \Phalcon\Mvc\Model\Manager();
                 $modelsManager->setEventsManager($eventsManager);
@@ -78,7 +80,11 @@ return array(
             'class' => function ($application) {
                 $router = new Router(false);
 
-                foreach ($application->getModules() as $key => $module) {
+                $router->setDefaultModule('index');
+                $router->setDefaultController('index');
+                $router->setDefaultAction('index');
+
+                foreach($application->getModules() as $key => $module) {
                     $router->add('/'.$key.'/:params', array(
                         'module' => 'admin',
                         'controller' => 'index',
@@ -110,7 +116,7 @@ return array(
                 $router->notFound(array(
                     'module' => 'frontend',
                     'namespace' => 'Frontend\Controller',
-                    'controller' => 'error',
+                    'controller' => 'index',
                     'action' => 'index'
                 ));
 
