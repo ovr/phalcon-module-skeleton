@@ -22,7 +22,7 @@ Features
  * Api ([Source code](./application/modules/api))
     * Index
     * Users
-        * Get ([Test url](http://phalcon-module.dmtry.me/api/users/get/2/) :: [Source code](./application/modules/api/Controllers/UsersController.php))
+        * Get ([Test url](http://phalcon-module.dmtry.me/api/users/get/2/) :: [Source code](./application/modules/api/controllers/UsersController.php))
  * Admin
     * Dashboard
     * GRUD for Users and Products (future)
