@@ -23,16 +23,6 @@ class Module
         $dispatcher = $di->get('dispatcher');
         $dispatcher->setDefaultNamespace('Admin\Controller');
 
-        $eventsManager = $di->get('eventsManager');
-
-        $eventsManager->attach("dispatch:beforeException", function ($event, $dispatcher, $exception) {
-            /**
-             * @todo and move it to global
-             */
-        });
-        $dispatcher->setEventsManager($eventsManager);
-        $di->set('dispatcher', $dispatcher);
-
         /**
          * @var \Phalcon\Mvc\View
          */
