@@ -31,11 +31,10 @@ return array(
             }
         ),
         'dispatcher' => array(
-            'class' => function($application) {
+            'class' => function ($application) {
                 $evManager = $application->getDI()->getShared('eventsManager');
 
-                $evManager->attach('dispatch:beforeException',  function($event, $dispatcher, $exception) use(&$di)  {
-                    var_dump($exception);
+                $evManager->attach('dispatch:beforeException', function ($event, $dispatcher, $exception) use (&$di) {
                     if (!class_exists('Frontend\Module')) {
                         include_once APPLICATION_PATH . '/modules/frontend/Module.php';
                         $module = new Frontend\Module();
@@ -80,14 +79,14 @@ return array(
         'router' => array(
             'class' => function ($application) {
                 $router = new Router(false);
-                
+
                 $router->add('/', array(
                     'module' => 'frontend',
                     'controller' => 'index',
                     'action' => 'index'
                 ))->setName('default');
 
-                foreach($application->getModules() as $key => $module) {
+                foreach ($application->getModules() as $key => $module) {
                     $router->add('/'.$key.'/:params', array(
                         'module' => $key,
                         'controller' => 'index',
