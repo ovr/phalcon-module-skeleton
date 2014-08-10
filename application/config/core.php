@@ -16,7 +16,8 @@ return array(
         'url' => array(
             'class' => '\Phalcon\Mvc\Url',
             'parameters' => array(
-                'baseUri' => '/'
+                'baseUri' => '/',
+                'staticBaseUri' => '/static/' //Change to CDN if needed
             )
         ),
         'tag' => array(
