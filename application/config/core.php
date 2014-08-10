@@ -31,8 +31,8 @@ return array(
             }
         ),
         'dispatcher' => array(
-            'class' => function($di) {
-                $evManager = $di->getShared('eventsManager');
+            'class' => function($application) {
+                $evManager = $application->getDI()->getShared('eventsManager');
 
                 $evManager->attach('dispatch:beforeException',  function($event, $dispatcher, $exception) use(&$di)  {
                     if (!class_exists('Frontend\Module')) {
@@ -65,8 +65,8 @@ return array(
             }
         ),
         'modelsManager' => array(
-            'class' => function ($di) {
-                $eventsManager = $di->get('eventsManager');
+            'class' => function ($application) {
+                $eventsManager = $application->getDI()->get('eventsManager');
 
                 $modelsManager = new \Phalcon\Mvc\Model\Manager();
                 $modelsManager->setEventsManager($eventsManager);
