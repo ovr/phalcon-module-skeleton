@@ -9,6 +9,17 @@ namespace App;
 class Tag extends \Phalcon\Tag
 {
     /**
+     * @param \User\Model\User $user
+     * @param string $size
+     * @param bool $absolute
+     * @return mixed
+     */
+    public static function userPhotoUrl(\User\Model\User $user, $size = 'normal', $absolute = false)
+    {
+        return self::getUrlService()->getStatic('user/' . $user->id . '.jpg');
+    }
+
+    /**
      * Get url by route name and parameters
      *
      * @param $routename
