@@ -112,7 +112,7 @@ return array(
                 $router->notFound(array(
                     'module' => 'frontend',
                     'namespace' => 'Frontend\Controller',
-                    'controller' => 'index',
+                    'controller' => 'error',
                     'action' => 'index'
                 ));
 
