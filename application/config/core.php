@@ -15,10 +15,7 @@ return array(
         ),
         'url' => array(
             'class' => '\Phalcon\Mvc\Url',
-            'parameters' => array(
-                'baseUri' => '/',
-                'staticBaseUri' => '/static/' //Change to CDN if needed
-            )
+            'parameters' => $parameters['url']
         ),
         'tag' => array(
             'class' => '\App\Tag'
