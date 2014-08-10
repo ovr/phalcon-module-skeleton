@@ -77,43 +77,31 @@ return array(
             }
         ),
         'router' => array(
-            'class' => function () {
+            'class' => function ($application) {
                 $router = new Router(false);
 
-                $router->add('/admin/:params', array(
-                    'module' => 'admin',
-                    'controller' => 'index',
-                    'action' => 'index',
-                    'params' => 1
-                ))->setName('admin');
+                foreach($application->getModules() as $key => $module) {
+                    $router->add('/'.$key.'/:params', array(
+                        'module' => 'admin',
+                        'controller' => 'index',
+                        'action' => 'index',
+                        'params' => 1
+                    ))->setName($key);
 
-                $router->add('/:module/:params', array(
-                    'module' => 1,
-                    'controller' => 'index',
-                    'action' => 'index',
-                    'params' => 2
-                ));
+                    $router->add('/'.$key.'/:controller/:params', array(
+                        'module' => $key,
+                        'controller' => 1,
+                        'action' => 'index',
+                        'params' => 2
+                    ));
 
-                $router->add('/:module/:controller/:params', array(
-                    'module' => 1,
-                    'controller' => 2,
-                    'action' => 'index',
-                    'params' => 3
-                ));
-
-                $router->add('/:module/:controller/:params', array(
-                    'module' => 1,
-                    'controller' => 2,
-                    'action' => 'index',
-                    'params' => 3
-                ));
-
-                $router->add('/:module/:controller/:action/:params', array(
-                    'module' => 1,
-                    'controller' => 2,
-                    'action' => 3,
-                    'params' => 4
-                ))->setName('default');
+                    $router->add('/'.$key.'/:controller/:action/:params', array(
+                        'module' => $key,
+                        'controller' => 1,
+                        'action' => 2,
+                        'params' => 3
+                    ))->setName('default');
+                }
 
                 $router->add('/user/{id:([0-9]{1,32})}/:params', array(
                     'module' => 'user',
