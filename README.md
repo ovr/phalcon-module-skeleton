@@ -16,6 +16,8 @@ Features
 * Bootstrap theme
 * Full frontend developer stuck composer/npm/bower/gulp
 * Modules structure
+* Error handling (not found router, dispatcher exceptions)
+* Shared layouts
 * Pre-installed modules
  * Api ([Source code](./application/modules/api))
     * Index
