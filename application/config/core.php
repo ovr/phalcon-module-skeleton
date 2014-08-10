@@ -66,7 +66,7 @@ return array(
         ),
         'modelsManager' => array(
             'class' => function ($application) {
-                $eventsManager = $application->getDI()->get('eventsManager');
+                $eventsManager = $application->getDI()->getShared('eventsManager');
 
                 $modelsManager = new \Phalcon\Mvc\Model\Manager();
                 $modelsManager->setEventsManager($eventsManager);
