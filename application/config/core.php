@@ -15,9 +15,7 @@ return array(
         ),
         'url' => array(
             'class' => '\Phalcon\Mvc\Url',
-            'parameters' => array(
-                'baseUri' => '/'
-            )
+            'parameters' => $parameters['url']
         ),
         'tag' => array(
             'class' => '\App\Tag'
