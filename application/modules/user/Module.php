@@ -23,12 +23,13 @@ class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
         $dispatcher->setDefaultNamespace('User\Controller');
 
         /**
-         * @var \Phalcon\Mvc\View
+         * @var $view \Phalcon\Mvc\View
          */
         $view = $di->get('view');
         $view->setLayout('index');
         $view->setViewsDir(APPLICATION_PATH . '/modules/user/views/');
         $view->setLayoutsDir('../../common/layouts/');
+        $view->setPartialsDir('../../common/partials/');
 
         $di->set('view', $view);
     }
