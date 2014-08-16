@@ -1,3 +1,4 @@
+
 class ADM.App
 
   events: _.extend(ADM.Events, Backbone.Events)
@@ -10,11 +11,12 @@ class ADM.App
       @events.t 'init:end'
     , this
 
+    @router = new ADM.Router
+
+    @events.t 'init:dom:end'
+
   dom_onload: ->
     console.log 'dom_onload'
 
-ADM.app = new ADM.App
-ADM.app.events.on 'router:init:end', -> Backbone.history.start pushState: true
-ADM.app.init()
-
-$ -> ADM.app.events.t 'dom:onload'
+  dashboard: ->
+    console.log 'ADM.App dashboard'
