@@ -15,9 +15,12 @@ gulp.task('stylesheets', function () {
 });
 
 gulp.task('coffee', function() {
-    gulp.src('./public/src/app/*.coffee')
-        .pipe(coffee({bare: true}).on('error', gutil.log))
-        .pipe(gulp.dest('./public/dist/'))
+    gulp.src([
+        './public/src/app/*.coffee',
+        './public/src/app/*/*.coffee'
+    ])
+    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(gulp.dest('./public/dist/'))
 });
 
 gulp.task('default', ['stylesheets', 'coffee']);
