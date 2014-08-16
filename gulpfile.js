@@ -1,6 +1,8 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
-    minifyCSS = require('gulp-minify-css');
+    minifyCSS = require('gulp-minify-css'),
+    coffee = require('gulp-coffee'),
+    gutil = require('gulp-util');
 
 gulp.task('stylesheets', function () {
     gulp.src([
@@ -12,4 +14,10 @@ gulp.task('stylesheets', function () {
     .pipe(gulp.dest('./public/dist/'))
 });
 
-gulp.task('default', ['stylesheets']);
+gulp.task('coffee', function() {
+    gulp.src('./public/src/app/*.coffee')
+        .pipe(coffee({bare: true}).on('error', gutil.log))
+        .pipe(gulp.dest('./public/dist/'))
+});
+
+gulp.task('default', ['stylesheets', 'coffee']);
