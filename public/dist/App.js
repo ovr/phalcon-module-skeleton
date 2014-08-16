@@ -8,7 +8,7 @@ window.ADM = (function() {
 ADM.App = (function() {
   function App() {}
 
-  App.prototype.events = _.extend(BBNS.Events, Backbone.Events);
+  App.prototype.events = _.extend(ADM.Events, Backbone.Events);
 
   App.prototype.init = function() {
     this.events.t('init:start');
@@ -18,7 +18,9 @@ ADM.App = (function() {
     }, this);
   };
 
-  App.prototype.dom_onload = function() {};
+  App.prototype.dom_onload = function() {
+    return console.log('dom_onload');
+  };
 
   return App;
 
