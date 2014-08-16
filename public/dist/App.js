@@ -1,10 +1,3 @@
-window.ADM = (function() {
-  function ADM() {}
-
-  return ADM;
-
-})();
-
 ADM.App = (function() {
   function App() {}
 
@@ -37,5 +30,5 @@ ADM.app.events.on('router:init:end', function() {
 ADM.app.init();
 
 $(function() {
-  return BBNS.app.events.t('dom:onload');
+  return ADM.app.events.t('dom:onload');
 });

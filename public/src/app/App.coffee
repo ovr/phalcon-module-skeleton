@@ -1,5 +1,3 @@
-class window.ADM
-
 class ADM.App
 
   events: _.extend(ADM.Events, Backbone.Events)
@@ -19,4 +17,4 @@ ADM.app = new ADM.App
 ADM.app.events.on 'router:init:end', -> Backbone.history.start pushState: true
 ADM.app.init()
 
-$ -> BBNS.app.events.t 'dom:onload'
+$ -> ADM.app.events.t 'dom:onload'
