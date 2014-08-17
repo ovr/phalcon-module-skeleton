@@ -50,13 +50,22 @@ class Tag extends \Phalcon\Tag
      * @param string $action
      * @return string
      */
-    public static function u($module, $controller = 'index', $action = 'index')
+    public static function u($module, $controller = null, $action = null)
     {
+        /**
+         * @todo rewrite with routers
+         */
+
+        if ($controller) {
+            if ($action) {
+                return '/' . $module . '/' . $controller . '/' . $action . '/';
+            }
+
+            return '/' . $module . '/' . $controller . '/';
+        }
+
         return self::getUrlService()->get(array(
-            'module' => $module,
-            'controller' => $controller,
-            'action' => $action,
-            'for' => 'default'
+            'for' => $module
         ));
     }
 }
