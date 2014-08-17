@@ -1,9 +1,9 @@
 
 class ADM.Router extends Backbone.Router
   routes:
-    '': 'dashboard'
-    'users': 'users'
-    'products': 'products'
+    'admin': 'dashboard'
+    'admin/users': 'users'
+    'admin/products': 'products'
 
   initialize: ->
     console.log 'Router init'
