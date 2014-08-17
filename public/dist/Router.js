@@ -20,7 +20,7 @@ ADM.Router = (function(_super) {
   };
 
   Router.prototype.dashboard = function() {
-    console.log('users route');
+    console.log('dashboard route');
     return ADM.app.dashboard();
   };
 

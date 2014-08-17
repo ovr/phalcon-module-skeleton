@@ -10,7 +10,7 @@ class ADM.Router extends Backbone.Router
     ADM.app.events.t 'router:init:end'
 
   dashboard: ->
-    console.log 'users route'
+    console.log 'dashboard route'
     ADM.app.dashboard()
 
   users: ->
