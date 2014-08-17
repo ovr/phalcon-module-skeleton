@@ -9,9 +9,9 @@ ADM.Router = (function(_super) {
   }
 
   Router.prototype.routes = {
-    '': 'dashboard',
-    'users': 'users',
-    'products': 'products'
+    'admin/': 'dashboard',
+    'admin/users/': 'users',
+    'admin/products/': 'products'
   };
 
   Router.prototype.initialize = function() {
@@ -25,11 +25,13 @@ ADM.Router = (function(_super) {
   };
 
   Router.prototype.users = function() {
-    return console.log('users route');
+    console.log('users route');
+    return ADM.app.users();
   };
 
   Router.prototype.products = function() {
-    return console.log('products route');
+    console.log('products route');
+    return ADM.app.products();
   };
 
   return Router;

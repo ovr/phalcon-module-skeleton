@@ -11,6 +11,8 @@ class ADM.App
       @events.t 'init:end'
     , this
 
+
+    @pageHeader = $('.page-header');
     @router = new ADM.Router
 
     @events.t 'init:dom:end'
@@ -20,3 +22,12 @@ class ADM.App
 
   dashboard: ->
     console.log 'ADM.App dashboard'
+
+    @pageHeader.text 'Dashboard'
+
+  users: ->
+    console.log 'AMD.App.users();'
+    @pageHeader.text 'Users'
+
+  products: ->
+    @pageHeader.text 'Products'

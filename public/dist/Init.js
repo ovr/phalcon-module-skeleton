@@ -10,7 +10,8 @@ ADM.app.init();
 
 $(document).on('click', 'a[data-backbone]', function(e) {
   e.preventDefault();
-  return Backbone.history.navigate($(e.currentTarget).attr('href'));
+  console.log('a[data-backbone] click');
+  return ADM.app.router.navigate($(e.currentTarget).attr('href'));
 });
 
 $(function() {

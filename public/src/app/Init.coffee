@@ -8,6 +8,7 @@ ADM.app.init()
 
 $(document).on 'click', 'a[data-backbone]', (e) ->
   e.preventDefault()
-  Backbone.history.navigate($(e.currentTarget).attr('href'));
+  console.log 'a[data-backbone] click'
+  ADM.app.router.navigate($(e.currentTarget).attr('href'));
 
 $ -> ADM.app.events.t 'dom:onload'

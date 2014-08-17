@@ -9,6 +9,7 @@ ADM.App = (function() {
     this.events.on('init:dom:end', function() {
       return this.events.t('init:end');
     }, this);
+    this.pageHeader = $('.page-header');
     this.router = new ADM.Router;
     return this.events.t('init:dom:end');
   };
@@ -18,7 +19,17 @@ ADM.App = (function() {
   };
 
   App.prototype.dashboard = function() {
-    return console.log('ADM.App dashboard');
+    console.log('ADM.App dashboard');
+    return this.pageHeader.text('Dashboard');
+  };
+
+  App.prototype.users = function() {
+    console.log('AMD.App.users();');
+    return this.pageHeader.text('Users');
+  };
+
+  App.prototype.products = function() {
+    return this.pageHeader.text('Products');
   };
 
   return App;
