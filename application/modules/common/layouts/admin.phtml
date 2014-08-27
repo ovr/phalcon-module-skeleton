@@ -23,22 +23,14 @@
     <script src="/src/vendor/backbone/backbone.js"></script>
 
     <script src="/dist/ns.js"></script>
-
-    <script src="/dist/Model/User.js"></script>
-    <script src="/dist/Collection/Users.js"></script>
-
-    <script src="/dist/Events.js"></script>
-    <script src="/dist/App.js"></script>
-    <script src="/dist/Router.js"></script>
-    <script src="/dist/Init.js"></script>
 </head>
 <body>
-<?php
-    /**
-     * \User\Model\User
-     */
-    $identity = $this->di->get('auth')->getIdentity();
-?>
+    <?php
+        /**
+         * \User\Model\User
+         */
+        $identity = $this->di->get('auth')->getIdentity();
+    ?>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -119,5 +111,13 @@
     </div>
 
     <?php echo $this->partial('footer'); ?>
+
+    <script src="/dist/Model/User.js"></script>
+    <script src="/dist/Collection/Users.js"></script>
+
+    <script src="/dist/Events.js"></script>
+    <script src="/dist/App.js"></script>
+    <script src="/dist/Router.js"></script>
+    <script src="/dist/Init.js"></script>
 </body>
 </html>
