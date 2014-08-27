@@ -3,7 +3,7 @@ ADM.App = (function() {
 
   App.prototype.events = _.extend(ADM.Events, Backbone.Events);
 
-  App.prototype.init = function() {
+  App.prototype.initialize = function() {
     this.events.t('init:start');
     this.events.on('dom:onload', this.dom_onload, this);
     this.events.on('init:dom:end', function() {

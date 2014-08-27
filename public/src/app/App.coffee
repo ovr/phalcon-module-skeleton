@@ -3,14 +3,13 @@ class ADM.App
 
   events: _.extend(ADM.Events, Backbone.Events)
 
-  init: ->
+  initialize: ->
     @events.t 'init:start'
     @events.on 'dom:onload', @dom_onload, this
 
     @events.on 'init:dom:end', ->
       @events.t 'init:end'
     , this
-
 
     @pageHeader = $('.page-header');
     @router = new ADM.Router
@@ -22,11 +21,11 @@ class ADM.App
 
   dashboard: ->
     console.log 'ADM.App dashboard'
-
     @pageHeader.text 'Dashboard'
 
   users: ->
     console.log 'AMD.App.users();'
+
     @pageHeader.text 'Users'
 
   products: ->

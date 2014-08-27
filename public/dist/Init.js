@@ -6,12 +6,14 @@ ADM.app.events.on('router:init:end', function() {
   });
 });
 
-ADM.app.init();
+ADM.app.initialize();
 
 $(document).on('click', 'a[data-backbone]', function(e) {
   e.preventDefault();
   console.log('a[data-backbone] click');
-  return ADM.app.router.navigate($(e.currentTarget).attr('href'));
+  return ADM.app.router.navigate($(e.currentTarget).attr('href'), {
+    trigger: true
+  });
 });
 
 $(function() {
