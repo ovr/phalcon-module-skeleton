@@ -7,6 +7,7 @@ var gulp = require('gulp'),
 gulp.task('stylesheets', function () {
     gulp.src([
         './public/src/vendor/bootstrap/dist/css/bootstrap.min.css',
+        './public/src/vendor/font-awesome/css/font-awesome.min.css',
         './public/css/project.css'
     ])
     .pipe(concat('all.css'))
