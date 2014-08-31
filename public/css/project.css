@@ -5,3 +5,14 @@ body {
     padding: 40px 15px;
     text-align: center;
 }
+.phalcony-box {
+    width: 270px;
+    margin: 0 auto;
+    display: block;
+}
+.phalcony-box h4 {
+    text-align: center;
+}
+#phalcony {
+    width: 100%;
+}
