@@ -10,7 +10,7 @@
     "require": {
         "php": "~5.3",
         "ext-json": "*",
-        "ovr/phalcony": "~0.2",
+        "ovr/phalcony": "~0.2.3",
         "phalcon/devtools": "dev-master",
         "phalconeye/framework": "0.5.*@dev",
         "symfony/console": "*"

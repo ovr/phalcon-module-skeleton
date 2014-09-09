@@ -7,14 +7,19 @@ return array(
     'services' => array(
         'db' => array(
             'class' => '\Phalcon\Db\Adapter\Pdo\Mysql',
-            '__construct' => $parameters['db'],
+            '__construct' => array(
+                $parameters['db']
+            )
         ),
         'logger' => array(
             'class' => '\Phalcon\Logger\Adapter\File',
-            '__construct' => APPLICATION_PATH . '/logs/' . APPLICATION_ENV . '.log'
+            '__construct' => array(
+                APPLICATION_PATH . '/logs/' . APPLICATION_ENV . '.log'
+            )
         ),
         'url' => array(
             'class' => '\Phalcon\Mvc\Url',
+            'shared' => true,
             'parameters' => $parameters['url']
         ),
         'tag' => array(
