@@ -3,6 +3,7 @@
     "description": "Example for easy start with Phalcon + Phalcony sublib.",
     "url": "https://github.com/ovr/phalcon-module-skeleton",
     "license": "MIT",
+    "type": "project",
     "keywords": [
         "framework",
         "phalcon"
