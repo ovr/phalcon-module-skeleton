@@ -38,5 +38,9 @@
         "post-update-cmd": [
             "App\\Composer\\ScriptHandler::build"
         ]
+    },
+    "extra": {
+        "app-dir": "application",
+        "web-dir": "public"
     }
 }
