@@ -17,6 +17,7 @@
         "symfony/console": "*"
     },
     "require-dev": {
+        "composer/composer": "1.0.*@dev",
         "squizlabs/php_codesniffer": "1.5.2"
     },
     "autoload": {
@@ -29,5 +30,13 @@
             "name": "Patsura Dmitry",
             "email": "zaets28rus@gmail.com"
         }
-    ]
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "App\\Composer\\ScriptHandler::build"
+        ],
+        "post-update-cmd": [
+            "App\\Composer\\ScriptHandler::build"
+        ]
+    }
 }
