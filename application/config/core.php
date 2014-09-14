@@ -3,6 +3,15 @@
 use Phalcon\Mvc\Router;
 use Phalcon\Mvc\View;
 
+date_default_timezone_set('US/Eastern');
+setlocale(LC_ALL, 'ru_RU.UTF-8');
+
+if (PHP_VERSION_ID < 50600) {
+    iconv_set_encoding('internal_encoding', 'UTF-8');
+}
+
+$parameters = include_once __DIR__ . '/parameters.php';
+
 return array(
     'services' => array(
         'db' => array(

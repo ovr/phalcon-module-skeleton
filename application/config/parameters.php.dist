@@ -1,19 +1,12 @@
 <?php
 
-date_default_timezone_set('US/Eastern');
-setlocale(LC_ALL, 'ru_RU.UTF-8');
-
-if (PHP_VERSION_ID < 50600) {
-    iconv_set_encoding('internal_encoding', 'UTF-8');
-}
-
-$parameters = array(
+return array(
     'db' => array(
         'adapter'     => 'Mysql',
         'host'        => 'localhost',
         'username'    => 'root',
         'password'    => 'root',
-        'dbname'      => 'phalcony-module',
+        'dbname'      => 'phalcon-module-skeleton',
         'options'	  => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
             PDO::ATTR_PERSISTENT => true
@@ -24,5 +17,3 @@ $parameters = array(
         'staticBaseUri' => '/static/' //Change to CDN if needed
     )
 );
-
-return include_once 'core.php';

@@ -7,3 +7,4 @@ application/config/development.php
 application/config/production.php
 application/config/testing.php
 application/config/staging.php
+application/config/parameters.php
