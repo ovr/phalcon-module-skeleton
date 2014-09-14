@@ -52,7 +52,7 @@ Run code in the terminal:
 
 ```
 composer create-project ovr/phalcon-module-skeleton=dev-master ./path/to/install
-``
+```
 
 ### Using Git
 
