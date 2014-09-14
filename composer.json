@@ -32,6 +32,9 @@
         }
     ],
     "scripts": {
+        "post-root-package-install": [
+            "App\\Composer\\ScriptHandler::install"
+        ],
         "post-install-cmd": [
             "App\\Composer\\ScriptHandler::build"
         ],
