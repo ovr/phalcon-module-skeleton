@@ -1,7 +1,6 @@
 <?php
 /**
- * @author Patsura Dmitry <zaets28rus@gmail.com>
- * @ate: 02.03.14 16:43
+ * @author Patsura Dmitry https://github.com/ovr <talk@dmtry.me>
  */
 
 define('APPLICATION_PATH', dirname(dirname(__FILE__)) . '/application');

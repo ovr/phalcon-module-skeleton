@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Patsura Dmitry <zaets28rus@gmail.com>
+ * @author Patsura Dmitry https://github.com/ovr <talk@dmtry.me>
  */
 
 namespace User;
