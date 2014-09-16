@@ -5,7 +5,7 @@ return array(
         'adapter'     => 'Mysql',
         'host'        => 'localhost',
         'username'    => 'root',
-        'password'    => 'root',
+        'password'    => '',
         'dbname'      => 'phalcon-module-skeleton',
         'options'	  => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
