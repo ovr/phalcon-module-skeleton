@@ -64,7 +64,8 @@ cd project
 composer update
 ```
 
-Install vhost for your virtual server:
+## Install vhost for your virtual server
+
 
 ```
 cp ./docs/example-configs/nginx.phalcony.local.conf /etc/nginx/sites-enabled/you.host.conf
