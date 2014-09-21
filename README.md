@@ -14,7 +14,7 @@ Features
 * Easy application bootstrapping
 * Console task support (provided by symfony/console)
 * Bootstrap theme
-* Full frontend developer stuck composer/npm/bower/gulp
+* Full frontend developer stack composer/npm/bower/gulp
 * Modules structure
 * Error handling (not found router, dispatcher exceptions)
 * Shared layouts
