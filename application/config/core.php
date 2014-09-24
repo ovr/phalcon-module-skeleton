@@ -179,6 +179,10 @@ return array(
                 'className' => 'User\Module',
                 'path' => APPLICATION_PATH . '/modules/user/Module.php',
             ),
+            'oauth' => array(
+                'className' => 'OAuth\Module',
+                'path' => APPLICATION_PATH . '/modules/oauth/Module.php',
+            ),
         )
     )
 );
