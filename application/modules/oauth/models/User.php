@@ -3,16 +3,16 @@
  * @author Patsura Dmitry https://github.com/ovr <talk@dmtry.me>
  */
 
-namespace User\Model;
+namespace OAuth\Model;
 
 /**
  * Class User
  * @package User\Model
  *
- * @Source("User__Users")
+ * @Source("OAuth__Users")
  *
- * @BelongsTo("group_id", '\User\Model\Group', "id", {
- *  "alias": "Group"
+ * @BelongsTo("user_id", '\User\Model\User', "id", {
+ *  "alias": "User"
  * })
  */
 class User extends \Phalcon\Mvc\Model
@@ -28,80 +28,29 @@ class User extends \Phalcon\Mvc\Model
     public $id;
 
     /**
-     * @Column(column="date_created", type="datetime")
-     * @var string
+     * @Column(type="integer", nullable=false, name="user", size="11")
      */
-    public $dateCreated;
+    public $userId;
 
     /**
-     * @Column(column="date_modified", type="datetime")
-     * @var string
+     * Social network user's id
+     *
+     * @Column(type="string", nullable=false, name="user", size="20")
      */
-    public $dateModified;
+    public $identifier;
 
     /**
-     * @Column(name="firstname", type="string", length=45)
-     * @var string
+     * Social network id
+     *
+     * @Column(type="integer", nullable=false, name="social_id", size="11")
      */
-    public $firstname;
-
-    /**
-     * @Column(name="lastname", type="string", length=45)
-     * @var string
-     */
-    public $lastname;
-
-    /**
-     * @Column(name="nick", type="string", length=45)
-     * @var string
-     */
-    public $nick;
-
-    /**
-     * @Column(name="email", type="string", length=45)
-     * @var string
-     */
-    public $email;
-
-    /**
-     * @Column(name="published", type="boolean")
-     * @var string
-     */
-    public $publish;
-
-    /**
-     * @Column(name="deleted", type="boolean")
-     * @var string
-     */
-    public $deleted;
-
-    /**
-     * @Column(type="integer", nullable=false, name="group_id", size="11")
-     */
-    public $group_id;
-
-    /**
-     * @param string $dateCreated
-     */
-    public function setDateCreated($dateCreated)
-    {
-        $this->dateCreated = $dateCreated;
-    }
+    public $socialId;
 
     /**
      * @return \Phalcon\Mvc\Model\ResultsetInterface
      */
     public function getGroup()
     {
-        return $this->getRelated('Group');
-    }
-
-    public function getUsername()
-    {
-        if ($this->lastname) {
-            return $this->firstname . ' ' . $this->lastname;
-        }
-
-        return $this->firstname;
+        return $this->getRelated('User');
     }
 }
