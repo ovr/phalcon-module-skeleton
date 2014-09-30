@@ -7,8 +7,17 @@ use Phalcon\Mvc\Controller;
 
 /**
  * Class IndexController
- * @package User\Controller
+ * @package OAuth\Controller
  */
 class IndexController extends Controller
 {
+    public function index()
+    {
+
+    }
+
+    public function callback()
+    {
+
+    }
 }
