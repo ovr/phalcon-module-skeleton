@@ -13,6 +13,7 @@ if (PHP_VERSION_ID < 50600) {
 $parameters = include_once __DIR__ . '/parameters.php';
 
 return array(
+    'parameters' => &$parameters,
     'services' => array(
         'db' => array(
             'class' => '\Phalcon\Db\Adapter\Pdo\Mysql',
