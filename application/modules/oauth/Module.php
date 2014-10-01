@@ -5,9 +5,13 @@
 
 namespace OAuth;
 
+use Phalcon\DiInterface;
+use SocialConnect\Auth\Service;
+use SocialConnect\Common\Http\Client\Curl;
+
 class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
 {
-    public function registerAutoloaders()
+    public function registerAutoloaders(DiInterface $dependencyInjector = NULL)
     {
         $loader = new \Phalcon\Loader();
         $loader->registerNamespaces(array(
@@ -17,10 +21,20 @@ class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
         $loader->register();
     }
 
-    public function registerServices($di)
+    public function registerServices(DiInterface $di = null)
     {
         $dispatcher = $di->get('dispatcher');
         $dispatcher->setDefaultNamespace('OAuth\Controller');
+
+        /**
+         * @var $application \Phalcony\Application
+         */
+        $application = $di->get('application');
+
+        $oauthService = new Service($application->getParameters('oauth'), null);
+        $oauthService->setHttpClient(new Curl());
+
+        $di->set('oauth', $oauthService);
 
         /**
          * @var $view \Phalcon\Mvc\View
