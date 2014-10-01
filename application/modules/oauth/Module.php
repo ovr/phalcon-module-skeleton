@@ -11,7 +11,7 @@ use SocialConnect\Common\Http\Client\Curl;
 
 class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
 {
-    public function registerAutoloaders(DiInterface $dependencyInjector = NULL)
+    public function registerAutoloaders(DiInterface $dependencyInjector = null)
     {
         $loader = new \Phalcon\Loader();
         $loader->registerNamespaces(array(
