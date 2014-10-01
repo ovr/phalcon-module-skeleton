@@ -122,6 +122,12 @@ return array(
                     ));
                 }
 
+                $router->add('/oauth/login/{id:([a-z]{1,20})}/:params', array(
+                    'module' => 'oauth',
+                    'controller' => 'index',
+                    'action' => 'index',
+                ))->setName('oauth-index-index');
+
                 $router->add('/user/{id:([0-9]{1,32})}/:params', array(
                     'module' => 'user',
                     'controller' => 'index',
