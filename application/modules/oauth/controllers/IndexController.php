@@ -11,12 +11,12 @@ use Phalcon\Mvc\Controller;
  */
 class IndexController extends Controller
 {
-    public function index()
+    public function indexAction()
     {
 
     }
 
-    public function callback()
+    public function callbackAction()
     {
 
     }
