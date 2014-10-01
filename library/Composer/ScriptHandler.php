@@ -31,7 +31,7 @@ class ScriptHandler
             $io->write(ucfirst($service) . ' service');
 
             foreach ($requiredParamaters as $key => $value) {
-                if ($key == 'options') {
+                if (is_array($key)) {
                     continue;
                 }
 
