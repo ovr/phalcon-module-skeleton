@@ -81,8 +81,8 @@ sudo service nginx restart
 Requirements
 ------------
 
-* PHP 5.3 and up
-* Phalcon **1.3.2** (maybe it works on phalcon 2.0.0)
+* PHP 5.4 and up
+* Phalcon **2.0.0** (maybe it works on phalcon 1.3.*)
 * Phalcony (latest)
 * PhalconEye/Framework (latest)
 
