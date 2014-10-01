@@ -9,7 +9,7 @@
         "phalcon"
     ],
     "require": {
-        "php": "~5.3",
+        "php": "~5.4",
         "ext-json": "*",
         "ovr/phalcony": "~0.2.4",
         "phalconeye/framework": "0.5.*@dev",
