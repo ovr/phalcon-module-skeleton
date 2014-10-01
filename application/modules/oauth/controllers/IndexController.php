@@ -11,9 +11,22 @@ use Phalcon\Mvc\Controller;
  */
 class IndexController extends Controller
 {
-    public function indexAction()
+    /**
+     * @return \SocialConnect\Auth\Service
+     */
+    public function getService()
     {
+        return $this->getDI()->get('oauth');
+    }
 
+    public function indexAction($providerName)
+    {
+        try {
+            $provider = $this->getService()->getProvider($providerName);
+            $this->response->redirect($provider->makeAuthUrl(), true, 301);
+        } catch (\Exception $e) {
+
+        }
     }
 
     public function callbackAction()
