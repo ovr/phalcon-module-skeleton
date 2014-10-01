@@ -13,7 +13,8 @@
         "ext-json": "*",
         "ovr/phalcony": "~0.2.3",
         "phalconeye/framework": "0.5.*@dev",
-        "symfony/console": "*"
+        "symfony/console": "*",
+        "socialconnect/auth": "~0.1.4"
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",
