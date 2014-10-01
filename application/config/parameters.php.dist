@@ -15,5 +15,31 @@ return array(
     'url' => array(
         'baseUri' => '/',
         'staticBaseUri' => '/static/' //Change to CDN if needed
+    ),
+    'oauth' => array(
+        'provider' => array(
+            'Facebook' => array(
+                'applicationId' => '',
+                'applicationSecret' => ''
+            ),
+            'Twitter' => array(
+                'applicationId' => '',
+                'applicationSecret' => '',
+                'enabled' => false
+            ),
+            'Google' => array(
+                'applicationId' => '',
+                'applicationSecret' => '',
+                'enabled' => false
+            ),
+            'Vk' => array(
+                'applicationId' => '',
+                'applicationSecret' => ''
+            ),
+            'Github' => array(
+                'applicationId' => '',
+                'applicationSecret' => ''
+            )
+        )
     )
 );
