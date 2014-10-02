@@ -12,8 +12,13 @@ class ErrorController extends \Phalcon\Mvc\Controller
          * @var Exception
          */
         $error = $this->dispatcher->getParam('error');
+
         if ($error instanceof Exception) {
             $code = $error->getCode();
+
+            if ($code < 400) {
+                $code = 400;
+            }
         } else {
             $code = 404;
         }
@@ -24,6 +29,9 @@ class ErrorController extends \Phalcon\Mvc\Controller
         switch($code) {
             case 404:
                 $this->view->error = 'Страница не найдена';
+                break;
+            default:
+                $this->view->error = 'Неопредленная ошибка';
                 break;
         }
     }

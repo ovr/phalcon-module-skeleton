@@ -48,7 +48,7 @@ return array(
                 $evManager = $application->getDI()->getShared('eventsManager');
 
                 $evManager->attach('dispatch:beforeException', function ($event, $dispatcher, $exception) use (&$application) {
-                    
+
                     if (!class_exists('Frontend\Module')) {
                         include_once APPLICATION_PATH . '/modules/frontend/Module.php';
                         $module = new Frontend\Module();
@@ -61,13 +61,13 @@ return array(
                      */
                     $dispatcher->setModuleName('frontend');
 
+                    $dispatcher->setParam('error', $exception);
                     $dispatcher->forward(
                         array(
                             'namespace' => 'Frontend\Controller',
                             'module' => 'frontend',
                             'controller' => 'error',
-                            'action'     => 'index',
-                            'error' => $exception
+                            'action'     => 'index'
                         )
                     );
                     return false;
