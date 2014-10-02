@@ -47,12 +47,13 @@ return array(
             'class' => function ($application) {
                 $evManager = $application->getDI()->getShared('eventsManager');
 
-                $evManager->attach('dispatch:beforeException', function ($event, $dispatcher, $exception) use (&$di) {
+                $evManager->attach('dispatch:beforeException', function ($event, $dispatcher, $exception) use (&$application) {
+                    
                     if (!class_exists('Frontend\Module')) {
                         include_once APPLICATION_PATH . '/modules/frontend/Module.php';
                         $module = new Frontend\Module();
-                        $module->registerServices($di);
-                        $module->registerAutoloaders($di);
+                        $module->registerServices($application->getDI());
+                        $module->registerAutoloaders($application->getDI());
                     }
 
                     /**
