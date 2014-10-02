@@ -2,7 +2,7 @@
 
 namespace OAuth\Controller;
 
-use Phalcon\Exception;
+use OAuth\Model\User as OAuthUser;
 use Phalcon\Mvc\Controller;
 
 /**
@@ -29,9 +29,27 @@ class IndexController extends Controller
         }
     }
 
+    /**
+     * @todo Move it to DB|Model
+     *
+     * @param $provider
+     * @return int
+     */
+    public function getProviderType($provider)
+    {
+        switch ($provider) {
+            case 'facebook':
+                return 1;
+            case 'github':
+                return 2;
+            case 'vk':
+                return 3;
+        }
+    }
+
     public function callbackAction()
     {
-       $provider = strtolower($this->request->get('provider', array('trim'), false));
+        $provider = strtolower($this->request->get('provider', array('trim'), false));
 
         switch ($provider) {
             case 'facebook':
@@ -53,7 +71,26 @@ class IndexController extends Controller
         $accessToken = $provider->getAccessToken($code);
         var_dump($accessToken);
 
+        /**
+         * @var $user \SocialConnect\Common\Entity\User
+         */
         $user = $provider->getUser($accessToken);
         var_dump($user);
+
+        $socialId = $this->getProviderType($provider);
+
+        $oauthRelation = OAuthUser::findFirst(array(
+            'socialId = ?0 AND identifier = ?1',
+            'bind' => array($socialId, $user->id)
+        ));
+
+        if ($oauthRelation) {
+
+        } else {
+            $oauthRelation = new OAuthUser();
+            $oauthRelation->identifier = $user->id;
+            $oauthRelation->socialId = $socialId;
+            $oauthRelation->save();
+        }
     }
 }
