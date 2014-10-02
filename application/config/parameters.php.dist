@@ -17,6 +17,7 @@ return array(
         'staticBaseUri' => '/static/' //Change to CDN if needed
     ),
     'oauth' => array(
+        'redirectUri' => 'http://phalcon-module.local/oauth/index/callback',
         'provider' => array(
             'Facebook' => array(
                 'applicationId' => '',
