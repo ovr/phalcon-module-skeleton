@@ -4,6 +4,7 @@ namespace OAuth\Controller;
 
 use OAuth\Model\User as OAuthUser;
 use Phalcon\Mvc\Controller;
+use User\Model\User;
 
 /**
  * Class IndexController
@@ -72,25 +73,45 @@ class IndexController extends Controller
         var_dump($accessToken);
 
         /**
-         * @var $user \SocialConnect\Common\Entity\User
+         * @var $socialUser \SocialConnect\Common\Entity\User
          */
-        $user = $provider->getUser($accessToken);
-        var_dump($user);
+        $socialUser = $provider->getUser($accessToken);
+        var_dump($socialUser);
 
         $socialId = $this->getProviderType($provider);
 
         $oauthRelation = OAuthUser::findFirst(array(
             'socialId = ?0 AND identifier = ?1',
-            'bind' => array($socialId, $user->id)
+            'bind' => array($socialId, $socialUser->id)
         ));
 
         if ($oauthRelation) {
 
         } else {
+            $user = User::findFirst(array(
+                'email = ?0',
+                'bind' => array($socialUser->email)
+            ));
+
+            if (!$user) {
+                $user = new User();
+                $user->dateCreated = new \Phalcon\Db\RawValue('NOW()');
+                $user->dateModified = new \Phalcon\Db\RawValue('NOW()');
+
+                $user->firstname = $socialUser->firstname;
+                $user->lastname = $socialUser->lastname;
+                $user->save();
+                $user->refresh();
+            }
+
             $oauthRelation = new OAuthUser();
-            $oauthRelation->identifier = $user->id;
+            $oauthRelation->identifier = $socialUser->id;
             $oauthRelation->socialId = $socialId;
+            $oauthRelation->userId  = $user->id;
             $oauthRelation->save();
+
+            $this->session->start();
+            $this->session->set('id', $user->id);
         }
     }
 }

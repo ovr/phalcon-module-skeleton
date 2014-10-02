@@ -52,7 +52,7 @@ class User extends \Phalcon\Mvc\Model
     public $lastname;
 
     /**
-     * @Column(name="nick", type="string", length=45)
+     * @Column(name="nick", type="string", length=45, nullable=true)
      * @var string
      */
     public $nick;
