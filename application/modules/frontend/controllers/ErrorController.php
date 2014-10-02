@@ -13,13 +13,19 @@ class ErrorController extends \Phalcon\Mvc\Controller
          */
         $error = $this->dispatcher->getParam('error');
 
+        $this->view->env = $this->di->getShared('application')->getEnv();
+
         if ($error instanceof Exception) {
+            $this->view->exception = $error;
+
             $code = $error->getCode();
 
             if ($code < 400) {
                 $code = 400;
             }
         } else {
+            $this->view->exception = false;
+
             $code = 404;
         }
 
