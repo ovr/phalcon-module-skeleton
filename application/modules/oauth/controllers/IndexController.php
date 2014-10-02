@@ -31,6 +31,29 @@ class IndexController extends Controller
 
     public function callbackAction()
     {
+       $provider = strtolower($this->request->get('provider', array('trim'), false));
 
+        switch ($provider) {
+            case 'facebook':
+            case 'github':
+            case 'vk':
+                $provider = $this->getService()->getProvider($provider);
+                break;
+            default:
+                throw new \Exception('Wrong $provider passed in url : ' . $provider);
+                break;
+        }
+
+        $code = $_GET['code'];
+
+        var_dump(array(
+            'code' => $code
+        ));
+
+        $accessToken = $provider->getAccessToken($code);
+        var_dump($accessToken);
+
+        $user = $provider->getUser($accessToken);
+        var_dump($user);
     }
 }
