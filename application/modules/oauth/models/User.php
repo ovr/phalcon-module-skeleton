@@ -28,14 +28,14 @@ class User extends \Phalcon\Mvc\Model
     public $id;
 
     /**
-     * @Column(type="integer", nullable=false, name="user", size="11")
+     * @Column(type="integer", nullable=false, name="user_id", size="11")
      */
     public $userId;
 
     /**
      * Social network user's id
      *
-     * @Column(type="string", nullable=false, name="user", size="20")
+     * @Column(type="string", nullable=false, name="identifier", size="20")
      */
     public $identifier;
 
