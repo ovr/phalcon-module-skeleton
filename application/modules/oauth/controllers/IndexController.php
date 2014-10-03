@@ -132,11 +132,14 @@ class IndexController extends Controller
         }
 
         $auth->authByUser($user);
+        $this->successAction();
     }
 
     public function successAction()
     {
-
+        if (!$this->request->isAjax()) {
+            $this->response->redirect('/', false);
+        }
     }
 
     public function failedAction()
