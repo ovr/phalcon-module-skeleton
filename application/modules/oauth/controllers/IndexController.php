@@ -96,6 +96,11 @@ class IndexController extends Controller
             'bind' => array($socialId, $socialUser->id)
         ));
 
+        /**
+         * @var $auth \App\Service\Auth
+         */
+        $auth = $this->di->get('auth');
+
         if ($oauthRelation) {
 
         } else {
@@ -105,11 +110,7 @@ class IndexController extends Controller
             ));
 
             if (!$user) {
-                /**
-                 * @var $oauth \App\Service\Auth
-                 */
-                $oauth = $this->di->get('oauth');
-                $user = $oauth->registerUser(array(
+                $user = $auth->registerUser(array(
                     'firstname' => $socialUser->firstname,
                     'lastname' => $socialUser->lastname,
                     'email' => $socialUser->email
@@ -123,8 +124,8 @@ class IndexController extends Controller
             $oauthRelation->userId  = $user->id;
             $oauthRelation->save();
 
-            $this->session->start();
-            $this->session->set('id', $user->id);
+
+            $auth->authByUser($user);
         }
     }
 

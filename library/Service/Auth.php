@@ -28,6 +28,9 @@ class Auth extends \Phalcon\Mvc\User\Component
             return $this->identity;
         }
 
+        /**
+         * @var $session \Phalcon\Session\Adapter
+         */
         $session = $this->getDI()->get('session');
         $session->start();
 
@@ -56,6 +59,20 @@ class Auth extends \Phalcon\Mvc\User\Component
         $user->save($values);
 
         return $user;
+    }
+
+    /**
+     * @param User $user
+     */
+    public function authByUser(\User\Model\User $user)
+    {
+        /**
+         * @var $session \Phalcon\Session\Adapter
+         */
+        $session = $this->getDI()->get('session');
+        $session->start();
+
+        $session->set('id', $user->id);
     }
 
     /**
