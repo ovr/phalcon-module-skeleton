@@ -94,16 +94,18 @@ class IndexController extends Controller
             ));
 
             if (!$user) {
-                $user = new User();
-                $user->dateCreated = new \Phalcon\Db\RawValue('NOW()');
-                $user->dateModified = new \Phalcon\Db\RawValue('NOW()');
-
-                $user->firstname = $socialUser->firstname;
-                $user->lastname = $socialUser->lastname;
-                $user->save();
+                /**
+                 * @var $oauth \App\Service\Auth
+                 */
+                $oauth = $this->di->get('oauth');
+                $user = $oauth->registerUser(array(
+                    'firstname' => $socialUser->firstname,
+                    'lastname' => $socialUser->lastname,
+                    'email' => $socialUser->email
+                ));
                 $user->refresh();
             }
-            
+
             $oauthRelation = new OAuthUser();
             $oauthRelation->identifier = $socialUser->id;
             $oauthRelation->socialId = $socialId;
@@ -113,5 +115,15 @@ class IndexController extends Controller
             $this->session->start();
             $this->session->set('id', $user->id);
         }
+    }
+
+    public function successAction()
+    {
+
+    }
+
+    public function failedAction()
+    {
+
     }
 }

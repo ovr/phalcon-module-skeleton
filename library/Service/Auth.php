@@ -40,4 +40,29 @@ class Auth extends \Phalcon\Mvc\User\Component
 
         return $this->identity = false;
     }
+
+    /**
+     * Register new user
+     *
+     * @param $values
+     * @return User
+     */
+    public function registerUser(array $values = [])
+    {
+        $user = new User();
+        $user->dateCreated = new \Phalcon\Db\RawValue('NOW()');
+        $user->dateModified = new \Phalcon\Db\RawValue('NOW()');
+
+        $user->save($values);
+
+        return $user;
+    }
+
+    /**
+     * @param null|User $identity
+     */
+    public function setIdentity(\User\Model\User $identity = null)
+    {
+        $this->identity = $identity;
+    }
 }
