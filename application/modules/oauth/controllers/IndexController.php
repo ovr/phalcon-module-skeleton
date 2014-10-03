@@ -20,6 +20,17 @@ class IndexController extends Controller
         return $this->getDI()->get('oauth');
     }
 
+    public function initialize()
+    {
+        $this->identity = $this->di->get('auth')->getIdentity();
+
+        if ($this->identity) {
+            $this->dispatcher->forward(array(
+                'action' => 'success'
+            ));
+        }
+    }
+
     public function indexAction($providerName)
     {
         try {
