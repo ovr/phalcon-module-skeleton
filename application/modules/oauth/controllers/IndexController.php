@@ -91,6 +91,9 @@ class IndexController extends Controller
 
         $socialId = $this->getProviderType($providerName);
 
+        /**
+         * @var $oauthRelation \OAuth\Model\User
+         */
         $oauthRelation = OAuthUser::findFirst(array(
             'socialId = ?0 AND identifier = ?1',
             'bind' => array($socialId, $socialUser->id)
@@ -102,7 +105,10 @@ class IndexController extends Controller
         $auth = $this->di->get('auth');
 
         if ($oauthRelation) {
-
+            $user = $oauthRelation->getRelated('User');
+            if (!$user) {
+                throw new \Exception('Can`t find user with id = ' . $oauthRelation->userId);
+            }
         } else {
             $user = User::findFirst(array(
                 'email = ?0',
@@ -123,10 +129,9 @@ class IndexController extends Controller
             $oauthRelation->socialId = $socialId;
             $oauthRelation->userId  = $user->id;
             $oauthRelation->save();
-
-
-            $auth->authByUser($user);
         }
+
+        $auth->authByUser($user);
     }
 
     public function successAction()
