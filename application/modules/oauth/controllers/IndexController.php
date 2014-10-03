@@ -50,16 +50,16 @@ class IndexController extends Controller
 
     public function callbackAction()
     {
-        $provider = strtolower($this->request->get('provider', array('trim'), false));
+        $providerName = strtolower($this->request->get('provider', array('trim'), false));
 
-        switch ($provider) {
+        switch ($providerName) {
             case 'facebook':
             case 'github':
             case 'vk':
-                $provider = $this->getService()->getProvider($provider);
+                $provider = $this->getService()->getProvider($providerName);
                 break;
             default:
-                throw new \Exception('Wrong $provider passed in url : ' . $provider);
+                throw new \Exception('Wrong $provider passed in url : ' . $providerName);
                 break;
         }
 
@@ -78,7 +78,7 @@ class IndexController extends Controller
         $socialUser = $provider->getUser($accessToken);
         var_dump($socialUser);
 
-        $socialId = $this->getProviderType($provider);
+        $socialId = $this->getProviderType($providerName);
 
         $oauthRelation = OAuthUser::findFirst(array(
             'socialId = ?0 AND identifier = ?1',
@@ -103,7 +103,7 @@ class IndexController extends Controller
                 $user->save();
                 $user->refresh();
             }
-
+            
             $oauthRelation = new OAuthUser();
             $oauthRelation->identifier = $socialUser->id;
             $oauthRelation->socialId = $socialId;
