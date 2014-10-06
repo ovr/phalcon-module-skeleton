@@ -23,11 +23,18 @@ class AuthController extends Controller
         if ($this->request->isPost()) {
             try {
                 if ($form->isValid($this->request->getPost())) {
+
+                    $user = \User\Model\User::findFirst(1);
+
+                    /**
+                     * @var $authService \App\Service\Auth
+                     */
+                    $authService = $this->di->get('auth');
+                    
                     /**
                      * @todo Rewrite for AuthService with check
                      */
-                    $this->session->start();
-                    $this->session->set('id', '1');
+                    $authService->authByUser($user);
 
                     $this->response->redirect(array('for' => 'admin'));
                 } else {
