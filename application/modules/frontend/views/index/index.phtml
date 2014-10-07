@@ -34,6 +34,37 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
+        <legend>
+            <h3 class="text-center"><i class="fa fa-user"></i> OAuth module builded with <a href="https://github.com/socialconnect/auth">socialconnect/auth</a></h3>
+        </legend>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-md-offset-3">
+
+        <div class="buttons" style="margin-left: 42px;">
+            <?php $identity = $this->di->getShared('auth')->getIdentity(); ?>
+            <?php if ($identity) : ?>
+                Вы авторизованы под <?php echo $identity->getUsername(); ?> <a href="/admin/auth/logout">Выход</a>
+            <?php else: ?>
+                <?php $oauthParameters = $this->di->get('application')->getParameters('oauth'); ?>
+                <?php foreach ($oauthParameters['provider'] as $name => $parameters) : ?>
+                    <?php
+                    $enabled = true;
+                    if (isset($parameters['enabled'])) {
+                        $enabled = (bool) $parameters['enabled'];
+                    }
+                    ?>
+                    <a href="/oauth/login/<?php echo strtolower($name); ?>/" class="btn btn-default" name="provider" type="submit" value="<?php echo $name; ?>"<?php echo (!$enabled) ? ' disabled="disabled"' : ''; ?>>
+                        <i class="fa fa-<?php echo strtolower($name); ?>"></i> <?php echo $name; ?>
+                    </a>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
         <legend><h2 class="text-center">Preinstalled modules</h2></legend>
     </div>
 </div>
