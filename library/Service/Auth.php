@@ -32,7 +32,9 @@ class Auth extends \Phalcon\Mvc\User\Component
          * @var $session \Phalcon\Session\Adapter
          */
         $session = $this->getDI()->get('session');
-        $session->start();
+        if (!$session->isStarted()) {
+            $session->start();
+        }
 
         if ($session->get('id')) {
             /**
@@ -70,7 +72,9 @@ class Auth extends \Phalcon\Mvc\User\Component
          * @var $session \Phalcon\Session\Adapter
          */
         $session = $this->getDI()->get('session');
-        $session->start();
+        if (!$session->isStarted()) {
+            $session->start();
+        }
 
         $session->set('id', $user->id);
     }
