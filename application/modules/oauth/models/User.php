@@ -14,6 +14,8 @@ namespace OAuth\Model;
  * @BelongsTo("userId", '\User\Model\User', "id", {
  *  "alias": "User"
  * })
+ *
+ * @property \User\Model\User|boolean $user
  */
 class User extends \Phalcon\Mvc\Model
 {
@@ -47,7 +49,7 @@ class User extends \Phalcon\Mvc\Model
     public $socialId;
 
     /**
-     * @return \Phalcon\Mvc\Model\ResultsetInterface
+     * @return \User\Model\User|boolean
      */
     public function getUser()
     {
