@@ -4,6 +4,7 @@ namespace OAuth\Controller;
 
 use OAuth\Model\User as OAuthUser;
 use Phalcon\Mvc\Controller;
+use Phalcon\Mvc\View;
 use User\Model\User;
 
 /**
@@ -25,9 +26,7 @@ class IndexController extends Controller
         $this->identity = $this->di->get('auth')->getIdentity();
 
         if ($this->identity) {
-            $this->dispatcher->forward(array(
-                'action' => 'success'
-            ));
+            $this->successAction();
         }
     }
 
@@ -35,7 +34,7 @@ class IndexController extends Controller
     {
         try {
             $provider = $this->getService()->getProvider($providerName);
-            $this->response->redirect($provider->makeAuthUrl(), true);
+            $this->response->redirect($provider->makeAuthUrl(), true)->send();
         } catch (\Exception $e) {
 
         }
@@ -74,12 +73,6 @@ class IndexController extends Controller
                 break;
         }
 
-        $code = $_GET['code'];
-
-        var_dump(array(
-            'code' => $code
-        ));
-
         $accessToken = $provider->getAccessToken($code);
         var_dump($accessToken);
 
@@ -87,8 +80,6 @@ class IndexController extends Controller
          * @var $socialUser \SocialConnect\Common\Entity\User
          */
         $socialUser = $provider->getUser($accessToken);
-        var_dump($socialUser);
-
         $socialId = $this->getProviderType($providerName);
 
         /**
@@ -131,6 +122,7 @@ class IndexController extends Controller
             $oauthRelation->save();
         }
 
+
         $auth->authByUser($user);
         $this->successAction();
     }
@@ -138,7 +130,7 @@ class IndexController extends Controller
     public function successAction()
     {
         if (!$this->request->isAjax()) {
-            $this->response->redirect('/', false);
+            $this->response->redirect('/')->send();
         }
     }
 
