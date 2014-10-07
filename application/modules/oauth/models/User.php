@@ -11,7 +11,7 @@ namespace OAuth\Model;
  *
  * @Source("OAuth__Users")
  *
- * @BelongsTo("user_id", '\User\Model\User', "id", {
+ * @BelongsTo("userId", '\User\Model\User', "id", {
  *  "alias": "User"
  * })
  */
@@ -49,7 +49,7 @@ class User extends \Phalcon\Mvc\Model
     /**
      * @return \Phalcon\Mvc\Model\ResultsetInterface
      */
-    public function getGroup()
+    public function getUser()
     {
         return $this->getRelated('User');
     }
