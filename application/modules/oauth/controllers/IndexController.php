@@ -21,17 +21,15 @@ class IndexController extends Controller
         return $this->getDI()->get('oauth');
     }
 
-    public function initialize()
+
+    public function indexAction($providerName)
     {
         $this->identity = $this->di->get('auth')->getIdentity();
 
         if ($this->identity) {
             $this->successAction();
         }
-    }
 
-    public function indexAction($providerName)
-    {
         try {
             $provider = $this->getService()->getProvider($providerName);
             $this->response->redirect($provider->makeAuthUrl(), true)->send();
@@ -73,8 +71,8 @@ class IndexController extends Controller
                 break;
         }
 
+        $code = $this->request->get('code', ['trim']);
         $accessToken = $provider->getAccessToken($code);
-        var_dump($accessToken);
 
         /**
          * @var $socialUser \SocialConnect\Common\Entity\User
@@ -96,7 +94,7 @@ class IndexController extends Controller
         $auth = $this->di->get('auth');
 
         if ($oauthRelation) {
-            $user = $oauthRelation->getRelated('User');
+            $user = $oauthRelation->getUser();
             if (!$user) {
                 throw new \Exception('Can`t find user with id = ' . $oauthRelation->userId);
             }
@@ -122,16 +120,14 @@ class IndexController extends Controller
             $oauthRelation->save();
         }
 
-
         $auth->authByUser($user);
+
         $this->successAction();
     }
 
     public function successAction()
     {
-        if (!$this->request->isAjax()) {
-            $this->response->redirect('/')->send();
-        }
+        $this->response->redirect('/', true)->send();
     }
 
     public function failedAction()
