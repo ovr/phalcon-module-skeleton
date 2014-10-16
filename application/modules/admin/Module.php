@@ -5,9 +5,11 @@
 
 namespace Admin;
 
+use Phalcon\DiInterface;
+
 class Module
 {
-    public function registerAutoloaders()
+    public function registerAutoloaders(DiInterface $dependencyInjector = null)
     {
         $loader = new \Phalcon\Loader();
         $loader->registerNamespaces(array(
@@ -18,7 +20,7 @@ class Module
         $loader->register();
     }
 
-    public function registerServices($di)
+    public function registerServices(DiInterface $di = null)
     {
         $dispatcher = $di->get('dispatcher');
         $dispatcher->setDefaultNamespace('Admin\Controller');
