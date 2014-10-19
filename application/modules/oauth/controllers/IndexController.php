@@ -74,77 +74,81 @@ class IndexController extends Controller
         $code = $this->request->get('code', ['trim']);
         $accessToken = $provider->getAccessToken($code);
 
-        /**
-         * @var $socialUser \SocialConnect\Common\Entity\User
-         */
-        $socialUser = $provider->getUser($accessToken);
-        $socialId = $this->getProviderType($providerName);
+        try {
+            /**
+             * @var $socialUser \SocialConnect\Common\Entity\User
+             */
+            $socialUser = $provider->getUser($accessToken);
+            $socialId = $this->getProviderType($providerName);
 
-        /**
-         * @var $oauthRelation \OAuth\Model\User
-         */
-        $oauthRelation = OAuthUser::findFirst(array(
-            'socialId = ?0 AND identifier = ?1',
-            'bind' => array($socialId, $socialUser->id)
-        ));
-
-        /**
-         * @var $auth \App\Service\Auth
-         */
-        $auth = $this->di->get('auth');
-
-        if ($oauthRelation) {
-            $user = $oauthRelation->getUser();
-            if (!$user) {
-                throw new \Exception('Can`t find user with id = ' . $oauthRelation->userId);
-            }
-        } else {
-            $user = User::findFirst(array(
-                'email = ?0',
-                'bind' => array($socialUser->email)
+            /**
+             * @var $oauthRelation \OAuth\Model\User
+             */
+            $oauthRelation = OAuthUser::findFirst(array(
+                'socialId = ?0 AND identifier = ?1',
+                'bind' => array($socialId, $socialUser->id)
             ));
 
-            if (!$user) {
-                $userValues = [];
+            /**
+             * @var $auth \App\Service\Auth
+             */
+            $auth = $this->di->get('auth');
 
-                if ($socialUser->email) {
-                    $userValues['email'] = $socialUser->email;
+            if ($oauthRelation) {
+                $user = $oauthRelation->getUser();
+                if (!$user) {
+                    throw new \Exception('Can`t find user with id = ' . $oauthRelation->userId);
                 }
+            } else {
+                $user = User::findFirst(array(
+                    'email = ?0',
+                    'bind' => array($socialUser->email)
+                ));
 
-                if ($socialUser->firstname) {
-                    $userValues['firstname'] = $socialUser->firstname;
-                }
+                if (!$user) {
+                    $userValues = [];
 
-                if ($socialUser->lastname) {
-                    $userValues['lastname'] = $socialUser->lastname;
-                }
-
-                if ($socialUser->name) {
-                    list($fistname, $lastname) = explode(' ', trim($socialUser->name));
-
-                    if ($fistname) {
-                        $userValues['firstname'] = $fistname;
+                    if ($socialUser->email) {
+                        $userValues['email'] = $socialUser->email;
                     }
 
-                    if ($lastname) {
-                        $userValues['lastname'] = $lastname;
+                    if ($socialUser->firstname) {
+                        $userValues['firstname'] = $socialUser->firstname;
                     }
+
+                    if ($socialUser->lastname) {
+                        $userValues['lastname'] = $socialUser->lastname;
+                    }
+
+                    if ($socialUser->name) {
+                        list($fistname, $lastname) = explode(' ', trim($socialUser->name));
+
+                        if ($fistname) {
+                            $userValues['firstname'] = $fistname;
+                        }
+
+                        if ($lastname) {
+                            $userValues['lastname'] = $lastname;
+                        }
+                    }
+
+                    $user = $auth->registerUser($userValues);
+                    $user->refresh();
                 }
 
-                $user = $auth->registerUser($userValues);
-                $user->refresh();
+                $oauthRelation = new OAuthUser();
+                $oauthRelation->identifier = $socialUser->id;
+                $oauthRelation->socialId = $socialId;
+                $oauthRelation->userId  = $user->id;
+                $oauthRelation->save();
             }
 
-            $oauthRelation = new OAuthUser();
-            $oauthRelation->identifier = $socialUser->id;
-            $oauthRelation->socialId = $socialId;
-            $oauthRelation->userId  = $user->id;
-            $oauthRelation->save();
+            $auth->authByUser($user);
+
+            $this->successAction();
+        } catch (\Exception $e) {
+            $this->failedAction();
         }
-
-        $auth->authByUser($user);
-
-        $this->successAction();
     }
 
     public function successAction()
