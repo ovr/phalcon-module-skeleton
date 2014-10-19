@@ -147,6 +147,12 @@ class IndexController extends Controller
 
             $this->successAction();
         } catch (\Exception $e) {
+            /**
+             * @var $logger \Phalcon\Logger\Adapter
+             */
+            $logger = $this->getDI()->get('log');
+            $logger->critical($e->getMessage());
+
             $this->failedAction();
         }
     }
