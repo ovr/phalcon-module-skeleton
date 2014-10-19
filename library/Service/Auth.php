@@ -64,7 +64,10 @@ class Auth extends \Phalcon\Mvc\User\Component
 
         $user->group_id = 1;
 
-        $user->save($values);
+        $result = $user->save($values);
+        if ($result === false) {
+            throw new Exception(implode(', ', $user->getMessages()));
+        }
 
         return $user;
     }
