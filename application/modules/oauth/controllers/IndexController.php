@@ -150,7 +150,7 @@ class IndexController extends Controller
             /**
              * @var $logger \Phalcon\Logger\Adapter
              */
-            $logger = $this->getDI()->get('log');
+            $logger = $this->getDI()->get('logger');
             $logger->critical($e->getMessage());
 
             $this->failedAction();
