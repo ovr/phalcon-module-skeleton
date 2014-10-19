@@ -105,11 +105,33 @@ class IndexController extends Controller
             ));
 
             if (!$user) {
-                $user = $auth->registerUser(array(
-                    'firstname' => $socialUser->firstname,
-                    'lastname' => $socialUser->lastname,
-                    'email' => $socialUser->email
-                ));
+                $userValues = [];
+
+                if ($socialUser->email) {
+                    $userValues['email'] = $socialUser->email;
+                }
+
+                if ($socialUser->firstname) {
+                    $userValues['firstname'] = $socialUser->firstname;
+                }
+
+                if ($socialUser->lastname) {
+                    $userValues['lastname'] = $socialUser->lastname;
+                }
+
+                if ($socialUser->name) {
+                    list($fistname, $lastname) = explode(' ', trim($socialUser->name));
+
+                    if ($fistname) {
+                        $userValues['firstname'] = $fistname;
+                    }
+
+                    if ($lastname) {
+                        $userValues['lastname'] = $lastname;
+                    }
+                }
+
+                $user = $auth->registerUser($userValues);
                 $user->refresh();
             }
 
