@@ -14,7 +14,7 @@
         "ovr/phalcony": "~0.2.4",
         "phalconeye/framework": "0.5.*@dev",
         "symfony/console": "*",
-        "socialconnect/auth": "~0.1.4",
+        "socialconnect/auth": "~0.1.6",
         "ovr/phalcon-pretty-exceptions": "dev-master"
     },
     "require-dev": {
