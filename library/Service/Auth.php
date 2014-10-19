@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use Phalcony\Validator\Exception;
 use User\Model\User;
 
 /**
@@ -57,6 +58,11 @@ class Auth extends \Phalcon\Mvc\User\Component
         $user = new User();
         $user->dateCreated = new \Phalcon\Db\RawValue('NOW()');
         $user->dateModified = new \Phalcon\Db\RawValue('NOW()');
+
+        $user->publish = true;
+        $user->deleted = false;
+
+        $user->group_id = 1;
 
         $user->save($values);
 
