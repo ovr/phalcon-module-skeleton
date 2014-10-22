@@ -5,9 +5,11 @@
 
 namespace User;
 
+use Phalcon\DiInterface;
+
 class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
 {
-    public function registerAutoloaders()
+    public function registerAutoloaders(DiInterface $dependencyInjector = null)
     {
         $loader = new \Phalcon\Loader();
         $loader->registerNamespaces(array(
@@ -17,20 +19,20 @@ class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
         $loader->register();
     }
 
-    public function registerServices($di)
+    public function registerServices(DiInterface $dependencyInjector)
     {
-        $dispatcher = $di->get('dispatcher');
+        $dispatcher = $dependencyInjector->get('dispatcher');
         $dispatcher->setDefaultNamespace('User\Controller');
 
         /**
          * @var $view \Phalcon\Mvc\View
          */
-        $view = $di->get('view');
+        $view = $dependencyInjector->get('view');
         $view->setLayout('index');
         $view->setViewsDir(APPLICATION_PATH . '/modules/user/views/');
         $view->setLayoutsDir('../../common/layouts/');
         $view->setPartialsDir('../../common/partials/');
 
-        $di->set('view', $view);
+        $dependencyInjector->set('view', $view);
     }
 }
