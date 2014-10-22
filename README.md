@@ -38,7 +38,7 @@ Features
     * Models/Service
  * Oauth
  * User
-    * View user page
+    * View [[@ovr](http://phalcon-module.dmtry.me/user/1/), [@xboston](http://phalcon-module.dmtry.me/user/2/)]
     * Models/Service
 
 How to install
