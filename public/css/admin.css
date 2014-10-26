@@ -120,3 +120,7 @@ body {
 {
     font-size: 87px;
 }
+
+.backgrid th {
+    text-align: left;
+}
