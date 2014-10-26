@@ -6,6 +6,26 @@ use Phalcon\Mvc\Controller;
 
 class UsersController extends Controller
 {
+    public function indexAction()
+    {
+        $users = \User\Model\User::find();
+
+        $result = array();
+
+        foreach ($users as $user) {
+            $result[] = [
+                'id' => $user->id,
+                'firstname' => $user->firstname,
+                'lastname' => $user->lastname,
+            ];
+        }
+
+        return array(
+            'success' => true,
+            'result' => $result
+        );
+    }
+
     public function getAction($id)
     {
         if ($id <= 0) {
