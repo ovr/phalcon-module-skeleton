@@ -11,10 +11,14 @@ Users = (function(_super) {
 
   Users.prototype.model = User;
 
-  Users.prototype.url = "api/users";
+  Users.prototype.url = "/api/users";
 
   Users.prototype.initialize = function() {
     return console.log('Users Collection initialize');
+  };
+
+  Users.prototype.parse = function(data) {
+    return data.result;
   };
 
   return Users;

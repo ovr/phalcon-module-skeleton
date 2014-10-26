@@ -28,5 +28,32 @@ class ADM.App
 
     @pageHeader.text 'Users'
 
+    users = new Users();
+    users.fetch();
+
+    grid = new Backgrid.Grid({
+      columns: [
+        {
+          name: "id",
+          label: "ID",
+          cell: "string"
+        },
+        {
+          name: "firstname",
+          label: "Firstname",
+          cell: "string"
+        },
+        {
+          name: "lastname",
+          label: "Lastname",
+          cell: "string"
+        }
+      ],
+      collection: users
+    });
+
+    $('#container').append(grid.render().el);
+    console.log(users);
+
   products: ->
     @pageHeader.text 'Products'
