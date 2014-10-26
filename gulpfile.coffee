@@ -18,7 +18,7 @@ gulp.task 'coffee', ->
     './public/src/app/*/*.coffee'
   ])
   .pipe($.coffee(bare: true))
-  .pipe(gulp.dest(out + '/js/'))
+  .pipe(gulp.dest('./public/dist/'))
 
 
 gulp.task 'default', ['stylesheets', 'coffee']
