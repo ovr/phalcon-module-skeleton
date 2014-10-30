@@ -4,7 +4,7 @@ Phalcon Module Skeleton
 [![License](https://poser.pugx.org/ovr/phalcon-module-skeleton/license.svg)](https://packagist.org/packages/ovr/phalcon-module-skeleton/)
 
 This is a skeleton application written on [phalcon framework](https://github.com/phalcon/cphalcon) with performance boost.
-This project created to develop applications in easy way.
+This project created to develop applications in an easy way.
  
 For current time project is under development, have fun :)
 
