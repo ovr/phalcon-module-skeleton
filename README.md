@@ -36,7 +36,7 @@ Features
  * Cart (future)
     * Index cart page
     * Models/Service
- * Oauth
+ * OAuth
  * User
     * View [[@ovr](http://phalcon-module.dmtry.me/user/1/), [@xboston](http://phalcon-module.dmtry.me/user/2/)]
     * Models/Service
