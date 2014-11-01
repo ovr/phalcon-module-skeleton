@@ -25,6 +25,12 @@ class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
         $dispatcher = new Dispatcher();
         $dispatcher->setDI($di);
         $dispatcher->setDefaultNamespace('Api\Controller');
+        $dispatcher->setExceptionPath(array(
+            'namespace' => 'Api\Controller',
+            'module' => 'api',
+            'controller' => 'index',
+            'action'     => 'exception'
+        ));
 
         $router = $di->get('router');
         $router->add('/api/users/get/{id:[a-Z]{1,11}}/', array(
