@@ -37,7 +37,7 @@ class UsersController extends Controller
     public function getAction($id)
     {
         if ($id <= 0) {
-            throw new \Exception('Wrong id passed');
+            throw new \Exception('Wrong id passed', 500);
         }
 
         /**
@@ -45,9 +45,8 @@ class UsersController extends Controller
          */
         $user = User::findFirst($id);
         if (!$user) {
-            throw new \Exception('Not found');
+            throw new \Exception('User not found', 404);
         }
-
 
         return array(
             'success' => true,
