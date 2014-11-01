@@ -31,20 +31,19 @@ class IndexController extends Controller
      */
     public function exceptionAction()
     {
+        /**
+         * @var $exception \Exception
+         */
         $exception  = $this->dispatcher->getParam('exception');
 
-        switch ($exception->getCode()) {
-            case 404:
-                $message = 'Not found';
-                break;
-            default:
-                $message = 'Houston we have got a problem';
-                break;
+        $message = $exception->getMessage();
+        if (empty($message)) {
+            $message = 'Houston we have got a problem';
         }
-
+        
         return array(
             'success' => false,
-            'message' => $message
+            'message' => $message,
         );
     }
 }
