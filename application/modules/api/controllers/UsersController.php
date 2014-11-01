@@ -40,6 +40,9 @@ class UsersController extends Controller
             throw new \Exception('Wrong id passed');
         }
 
+        /**
+         * @var $user User|boolean
+         */
         $user = User::findFirst($id);
         if (!$user) {
             throw new \Exception('Not found');
