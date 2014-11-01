@@ -3,12 +3,20 @@
 namespace Api\Controller;
 
 use Phalcon\Mvc\Controller;
+use User\Model\User;
 
+/**
+ * Class UsersController
+ * @package Api\Controller
+ */
 class UsersController extends Controller
 {
     public function indexAction()
     {
-        $users = \User\Model\User::find();
+        /**
+         * @var $users  User[]
+         */
+        $users = User::find();
 
         $result = array();
 
@@ -32,7 +40,7 @@ class UsersController extends Controller
             throw new \Exception('Wrong id passed');
         }
 
-        $user = \User\Model\User::findFirst($id);
+        $user = User::findFirst($id);
         if (!$user) {
             throw new \Exception('Not found');
         }
