@@ -20,7 +20,7 @@ class UsersController extends Controller
         } else if ($limit > 500) {
             throw new \Exception('Limit must be <= 500');
         }
-        
+
         $page = $this->request->get('page', ['trim', 'int'], 1);
         if ($page < 1) {
             throw new \Exception('Page must be > 0');
@@ -53,7 +53,10 @@ class UsersController extends Controller
 
         return array(
             'success' => true,
-            'result' => $result
+            'result' => array(
+                'users' => $result,
+                'total' => $page->total_items
+            )
         );
     }
 
