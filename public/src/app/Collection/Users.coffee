@@ -7,4 +7,4 @@ class Users extends Backbone.Collection
     console.log 'Users Collection initialize'
 
   parse: (data) ->
-    return data.result
+    return data.result.users

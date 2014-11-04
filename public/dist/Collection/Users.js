@@ -18,7 +18,7 @@ Users = (function(_super) {
   };
 
   Users.prototype.parse = function(data) {
-    return data.result;
+    return data.result.users;
   };
 
   return Users;
