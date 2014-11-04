@@ -3,6 +3,7 @@
 namespace Api\Controller;
 
 use Phalcon\Mvc\Controller;
+use Phalcon\Paginator\Adapter\QueryBuilder;
 use User\Model\User;
 
 /**
@@ -13,14 +14,24 @@ class UsersController extends Controller
 {
     public function indexAction()
     {
-        /**
-         * @var $users  User[]
-         */
-        $users = User::find();
+        $builder = $this->modelsManager->createBuilder()
+            ->from('User\Model\User')
+            ->orderBy('id DESC');
+
+        $paginator = new QueryBuilder(array(
+            "builder" => $builder,
+            "limit"=> 20,
+            "page" => 1
+        ));
+
 
         $result = array();
+        $page = $paginator->getPaginate();
 
-        foreach ($users as $user) {
+        /**
+         * @var $user  User
+         */
+        foreach ($page->items as $user) {
             $result[] = [
                 'id' => $user->id,
                 'firstname' => $user->firstname,
