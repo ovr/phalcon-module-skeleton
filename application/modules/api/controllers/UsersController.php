@@ -14,13 +14,20 @@ class UsersController extends Controller
 {
     public function indexAction()
     {
+        $limit = $this->request->get('limit', ['trim', 'int'], 100);
+        if ($limit <= 0) {
+            throw new \Exception('Limit must be > 0');
+        } else if ($limit > 500) {
+            throw new \Exception('Limit must be <= 500');
+        }
+
         $builder = $this->modelsManager->createBuilder()
             ->from('User\Model\User')
             ->orderBy('id DESC');
 
         $paginator = new QueryBuilder(array(
             "builder" => $builder,
-            "limit"=> 20,
+            "limit"=> $limit,
             "page" => 1
         ));
 
