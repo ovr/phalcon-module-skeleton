@@ -20,6 +20,11 @@ class UsersController extends Controller
         } else if ($limit > 500) {
             throw new \Exception('Limit must be <= 500');
         }
+        
+        $page = $this->request->get('page', ['trim', 'int'], 1);
+        if ($page < 1) {
+            throw new \Exception('Page must be > 0');
+        }
 
         $builder = $this->modelsManager->createBuilder()
             ->from('User\Model\User')
@@ -28,7 +33,7 @@ class UsersController extends Controller
         $paginator = new QueryBuilder(array(
             "builder" => $builder,
             "limit"=> $limit,
-            "page" => 1
+            "page" => $page
         ));
 
 
