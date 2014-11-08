@@ -22,6 +22,7 @@ Features
  * Api ([Source code](./application/modules/api))
     * Index
     * Users
+        * [List](http://phalcon-module.dmtry.me/api/users/) :: [Source code](./application/modules/api/controllers/UsersController.php)
         * [Get](http://phalcon-module.dmtry.me/api/users/get/2/) :: [Source code](./application/modules/api/controllers/UsersController.php)
  * Admin
     * Dashboard
