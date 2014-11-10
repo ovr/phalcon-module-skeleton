@@ -90,7 +90,7 @@ Requirements
 Online Demo
 -----------
 
-You can see online demo on [phalcon-module.dmtry.me](http://phalcon-module.dmtry.me/).
+You can see online demo on [http://phalcon-module.dmtry.me/](http://phalcon-module.dmtry.me/).
 
 License
 -------
