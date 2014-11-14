@@ -83,7 +83,7 @@ Requirements
 ------------
 
 * PHP 5.4 and up
-* Phalcon **2.0.0** (maybe it works on phalcon 1.3.*)
+* Phalcon **2.0.0**
 * Phalcony (latest)
 * PhalconEye/Framework (latest)
 
