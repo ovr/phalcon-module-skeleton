@@ -55,6 +55,7 @@ class UsersController extends Controller
             'success' => true,
             'result' => array(
                 'users' => $result,
+                'pages' => $page->total_pages,
                 'total' => $page->total_items
             )
         );
