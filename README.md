@@ -71,7 +71,7 @@ composer update
 
 
 ```bash
-cp ./docs/example-configs/nginx.phalcony.local.conf /etc/nginx/sites-enabled/you.host.conf
+cp ./docs/configs/nginx.phalcony.local.conf /etc/nginx/sites-enabled/you.host.conf
 ```
 
 Don`t forget to edit nginx config and restart nginx:
