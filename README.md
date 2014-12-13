@@ -2,8 +2,8 @@ Phalcon Module Skeleton
 ========
 
 [![Author](http://img.shields.io/badge/author-@ovr-blue.svg?style=flat-square)](https://twitter.com/ovrweb)
-[![Build Status](https://travis-ci.org/ovr/phalcon-module-skeleton.png?branch=master)](https://travis-ci.org/ovr/phalcon-module-skeleton)
-[![License](https://poser.pugx.org/ovr/phalcon-module-skeleton/license.svg)](https://packagist.org/packages/ovr/phalcon-module-skeleton/)
+[![Build Status](https://img.shields.io/travis/ovr/phalcon-module-skeleton/master.svg?style=flat-square)](https://travis-ci.org/ovr/phalcon-module-skeleton)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 This is a skeleton application written on [phalcon framework](https://github.com/phalcon/cphalcon) with performance boost.
 This project created to develop applications in an easy way.
