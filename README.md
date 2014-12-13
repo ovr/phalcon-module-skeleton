@@ -54,7 +54,7 @@ Best way to install skeleton would be Composer, if you didn't install it
 Run code in the terminal:
 
 ```bash
-composer create-project ovr/phalcon-module-skeleton=dev-master ./path/to/install
+composer create-project ovr/phalcon-module-skeleton=dev-master /path/to/install
 ```
 
 ### Using Git
