@@ -46,8 +46,9 @@ class UsersController extends Controller
         foreach ($page->items as $user) {
             $result[] = [
                 'id' => $user->id,
+                'nick' => $user->nick,
                 'firstname' => $user->firstname,
-                'lastname' => $user->lastname,
+                'lastname' => $user->lastname
             ];
         }
 
