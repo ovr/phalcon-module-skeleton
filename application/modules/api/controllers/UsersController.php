@@ -80,6 +80,7 @@ class UsersController extends Controller
             'success' => true,
             'result' => array(
                 'id' => $user->id,
+                'nick' => $user->nick,
                 'firstname' => $user->firstname,
                 'lastname' => $user->lastname
             )
