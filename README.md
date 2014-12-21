@@ -5,7 +5,7 @@ Phalcon Module Skeleton
 [![Build Status](https://img.shields.io/travis/ovr/phalcon-module-skeleton/master.svg?style=flat-square)](https://travis-ci.org/ovr/phalcon-module-skeleton)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
-## [Getting started](./docs/getting-started.md) [[ru](./docs/getting-started-ru.md)] :: [Vagrant](https://github.com/ovr/perfect-php-vagrant)
+## [Getting started](./docs/getting-started.md) [[ru](./docs/getting-started-ru.md)] :: [Vagrant](https://github.com/ovr/perfect-php-vagrant) :: [Rest Edition](https://github.com/ovr/phalcon-rest-edition)
 
 This is a skeleton application written on [phalcon framework](https://github.com/phalcon/cphalcon) with performance boost.
 This project created to develop applications in an easy way.
