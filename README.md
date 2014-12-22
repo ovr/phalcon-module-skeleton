@@ -1,5 +1,5 @@
 Phalcon Module Skeleton
-========
+=======================
 
 [![Author](http://img.shields.io/badge/author-@ovr-blue.svg?style=flat-square)](https://twitter.com/ovrweb)
 [![Build Status](https://img.shields.io/travis/ovr/phalcon-module-skeleton/master.svg?style=flat-square)](https://travis-ci.org/ovr/phalcon-module-skeleton)
