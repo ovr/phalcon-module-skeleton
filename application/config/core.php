@@ -190,7 +190,7 @@ return array(
             'oauth' => array(
                 'className' => 'OAuth\Module',
                 'path' => APPLICATION_PATH . '/modules/oauth/Module.php',
-            ),
+            )
         )
     )
 );
