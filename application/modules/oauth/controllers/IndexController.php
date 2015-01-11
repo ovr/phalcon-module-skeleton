@@ -78,7 +78,7 @@ class IndexController extends Controller
             /**
              * @var $socialUser \SocialConnect\Common\Entity\User
              */
-            $socialUser = $provider->getUser($accessToken);
+            $socialUser = $provider->getIdentity($accessToken);
             $socialId = $this->getProviderType($providerName);
 
             /**
