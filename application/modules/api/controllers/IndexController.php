@@ -43,6 +43,19 @@ class IndexController extends Controller
             $message = 'Houston we have got a problem';
         }
         
+        if ($this->application->getEnv() == \Phalcony\Application::ENV_PRODUCTION) {
+            switch ($exception->getCode()) {
+                case 500:
+                    $this->logger->critical((string) $exception);
+                    break;
+                default:
+                    $this->logger->debug((string) $exception);
+                    break;
+            }
+        } else {
+            $this->logger->debug((string) $exception);
+        }
+
         return array(
             'success' => false,
             'message' => $message,
