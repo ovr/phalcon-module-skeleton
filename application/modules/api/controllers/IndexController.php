@@ -19,6 +19,8 @@ class IndexController extends Controller
      */
     public function errorAction()
     {
+        $this->logger->debug('Error to handle: ' . $this->request->getURI());
+                
         return array(
             'success' => false,
             'url' => $this->request->getURI(),
