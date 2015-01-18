@@ -7,7 +7,7 @@ Phalcon Module Skeleton
 
 ## [Getting started](./docs/getting-started.md) [[ru](./docs/getting-started-ru.md)] :: [Vagrant](https://github.com/ovr/perfect-php-vagrant) :: [Rest Edition](https://github.com/ovr/phalcon-rest-edition)
 
-This is a skeleton application written on [phalcon framework](https://github.com/phalcon/cphalcon) with performance boost.
+This is a skeleton application written on [Phalcon](https://github.com/phalcon/cphalcon) framework with performance boost.
 This project created to develop applications in an easy way.
  
 For current time project is under development, have fun :)
