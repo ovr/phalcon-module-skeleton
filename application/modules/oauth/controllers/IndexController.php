@@ -34,7 +34,7 @@ class IndexController extends Controller
             $provider = $this->getService()->getProvider($providerName);
             $this->response->redirect($provider->makeAuthUrl(), true)->send();
         } catch (\Exception $e) {
-
+            
         }
     }
 

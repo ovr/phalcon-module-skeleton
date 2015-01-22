@@ -23,7 +23,6 @@ class AuthController extends Controller
         if ($this->request->isPost()) {
             try {
                 if ($form->isValid($this->request->getPost())) {
-
                     $user = \User\Model\User::findFirst(1);
 
                     /**
@@ -38,7 +37,7 @@ class AuthController extends Controller
 
                     $this->response->redirect(array('for' => 'admin'));
                 } else {
-
+                    //@todo Implement it
                 }
             } catch (\Exception $e) {
                 $this->flash->error($e->getMessage());
