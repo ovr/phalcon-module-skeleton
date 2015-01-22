@@ -4,6 +4,7 @@ Phalcon Module Skeleton
 [![Author](http://img.shields.io/badge/author-@ovr-blue.svg?style=flat-square)](https://twitter.com/ovrweb)
 [![Build Status](https://img.shields.io/travis/ovr/phalcon-module-skeleton/master.svg?style=flat-square)](https://travis-ci.org/ovr/phalcon-module-skeleton)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Dependency Status](https://www.versioneye.com/user/projects/54c0d1b26c00352081000143/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/54c0d1b26c00352081000143)
 
 ## [Getting started](./docs/getting-started.md) [[ru](./docs/getting-started-ru.md)] :: [Vagrant](https://github.com/ovr/perfect-php-vagrant) :: [Rest Edition](https://github.com/ovr/phalcon-rest-edition)
 
