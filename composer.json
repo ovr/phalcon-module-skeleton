@@ -19,7 +19,7 @@
     },
     "require-dev": {
         "composer/composer": "1.0.*@dev",
-        "squizlabs/php_codesniffer": "1.5.2"
+        "squizlabs/php_codesniffer": "~2.1"
     },
     "autoload": {
         "psr-4": {
