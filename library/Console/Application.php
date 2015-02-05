@@ -29,4 +29,14 @@ class Application extends \Symfony\Component\Console\Application
     {
         return $this->application;
     }
+    
+    /**
+     * Shortcut to get Phalcon application's Di
+     *
+     * @return \Phalcon\DiInterface
+     */
+    public function getDi()
+    {
+        return $this->application->getDI();
+    }
 }
