@@ -1,7 +1,7 @@
-How to install
+Как установить
 --------------
 
-### Using Composer (*recommended*)
+### Используя Composer (*recommended*)
 
 Best way to install skeleton would be Composer, if you didn't install it
 
@@ -11,7 +11,7 @@ Run code in the terminal:
 composer create-project ovr/phalcon-module-skeleton=dev-master /path/to/install
 ```
 
-### Using Git
+### Используя Git
 
 First you need to clone the project, update vendors:
 
@@ -21,7 +21,7 @@ cd project
 composer update
 ```
 
-## Install vhost for your virtual server
+## Установка vhost для вашего веб-сервера (nginx)
 
 
 ```bash
