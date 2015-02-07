@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Exception;
 
 /**
- * Class Markdown
+ * Class SettingsUpdate
  * @package App\Console\Command
  *
  * @method \App\Console\Application getApplication();
