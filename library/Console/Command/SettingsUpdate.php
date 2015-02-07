@@ -9,6 +9,8 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use Exception;
+
 /**
  * Class Markdown
  * @package App\Console\Command
@@ -27,6 +29,6 @@ class SettingsUpdate extends Command
         /**
          * @dump setting from database to file
          */
-        throw new \Exception('Will be implemented soon');
+        throw new Exception('Will be implemented soon');
     }
 }
