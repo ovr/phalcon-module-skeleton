@@ -3,9 +3,9 @@
 
 ### Используя Composer (*recommended*)
 
-Best way to install skeleton would be Composer, if you didn't install it
+Самый лучший способ установки будет Composer.
 
-Run code in the terminal:
+Запустите код в терминале:
 
 ```bash
 composer create-project ovr/phalcon-module-skeleton=dev-master /path/to/install
@@ -13,7 +13,7 @@ composer create-project ovr/phalcon-module-skeleton=dev-master /path/to/install
 
 ### Используя Git
 
-First you need to clone the project, update vendors:
+Склонируйте проект, обновите vendors:
 
 ```bash
 git clone https://github.com/ovr/phalcon-module-skeleton.git ./project
