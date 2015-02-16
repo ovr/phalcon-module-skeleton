@@ -3,6 +3,8 @@
 namespace Catalog\Controller;
 
 use Phalcon\Mvc\Controller;
+use Catalog\Model\Category;
+use Catalog\Model\Product;
 
 /**
  * Class IndexController
@@ -14,7 +16,7 @@ class IndexController extends Controller
     {
         $this->view->setLayout('catalog');
 
-        $this->view->categories = \Catalog\Model\Category::find();
-        $this->view->products = \Catalog\Model\Product::find();
+        $this->view->categories = Category::find();
+        $this->view->products = Product::find();
     }
 }
