@@ -2,6 +2,8 @@
 
 namespace App;
 
+use User\Model\User;
+
 /**
  * Class Tag
  * @package App
@@ -9,12 +11,12 @@ namespace App;
 class Tag extends \Phalcon\Tag
 {
     /**
-     * @param \User\Model\User $user
+     * @param User $user
      * @param string $size
      * @param bool $absolute
      * @return mixed
      */
-    public static function userPhotoUrl(\User\Model\User $user, $size = 'normal', $absolute = false)
+    public static function userPhotoUrl(User $user, $size = 'normal', $absolute = false)
     {
         return self::getUrlService()->getStatic('user/' . $user->id . '.jpg');
     }
@@ -55,7 +57,6 @@ class Tag extends \Phalcon\Tag
         /**
          * @todo rewrite with routers
          */
-
         if ($controller) {
             if ($action) {
                 return '/' . $module . '/' . $controller . '/' . $action . '/';
