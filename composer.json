@@ -6,7 +6,12 @@
     "type": "project",
     "keywords": [
         "framework",
-        "phalcon"
+        "phalcon",
+        "skeleton",
+        "user",
+        "rest",
+        "api",
+        "oauth"
     ],
     "require": {
         "php": "~5.4",
