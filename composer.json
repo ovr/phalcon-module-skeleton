@@ -5,7 +5,6 @@
     "license": "MIT",
     "type": "project",
     "keywords": [
-        "framework",
         "phalcon",
         "skeleton",
         "user",
