@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use Phalcon\Db\RawValue;
 use Phalcony\Validator\Exception;
 use User\Model\User;
 
@@ -50,14 +51,15 @@ class Auth extends \Phalcon\Mvc\User\Component
     /**
      * Register new user
      *
-     * @param $values
+     * @param array $values
      * @return User
+     * @throws Exception
      */
     public function registerUser(array $values = [])
     {
         $user = new User();
-        $user->dateCreated = new \Phalcon\Db\RawValue('NOW()');
-        $user->dateModified = new \Phalcon\Db\RawValue('NOW()');
+        $user->dateCreated = new RawValue('NOW()');
+        $user->dateModified = new RawValue('NOW()');
 
         $user->publish = true;
         $user->deleted = false;

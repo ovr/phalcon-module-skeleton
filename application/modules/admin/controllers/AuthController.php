@@ -4,6 +4,8 @@ namespace Admin\Controller;
 
 use Phalcon\Mvc\Controller;
 use Admin\Form\Login;
+use Phalcon\Mvc\View;
+use User\Model\User;
 
 /**
  * Class AuthController
@@ -23,7 +25,7 @@ class AuthController extends Controller
         if ($this->request->isPost()) {
             try {
                 if ($form->isValid($this->request->getPost())) {
-                    $user = \User\Model\User::findFirst(1);
+                    $user = User::findFirst(1);
 
                     /**
                      * @var $authService \App\Service\Auth
@@ -52,7 +54,7 @@ class AuthController extends Controller
      */
     public function logoutAction()
     {
-        $this->view->setRenderLevel(\Phalcon\Mvc\View::LEVEL_NO_RENDER);
+        $this->view->setRenderLevel(View::LEVEL_NO_RENDER);
 
         $this->session->start();
         $this->session->destroy();

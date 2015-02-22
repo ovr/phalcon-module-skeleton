@@ -3,6 +3,7 @@
 namespace Api\Controller;
 
 use Phalcon\Mvc\Controller;
+use Phalcony\Application;
 
 class IndexController extends Controller
 {
@@ -43,7 +44,7 @@ class IndexController extends Controller
             $message = 'Houston we have got a problem';
         }
         
-        if ($this->application->getEnv() == \Phalcony\Application::ENV_PRODUCTION) {
+        if ($this->application->getEnv() == Application::ENV_PRODUCTION) {
             switch ($exception->getCode()) {
                 case 500:
                     $this->logger->critical((string) $exception);
