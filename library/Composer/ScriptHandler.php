@@ -27,10 +27,10 @@ class ScriptHandler
 
         $distConfigure = include_once $configDir . 'parameters.php.dist';
 
-        foreach ($distConfigure as $service => $requiredParamaters) {
+        foreach ($distConfigure as $service => $requiredParameters) {
             $io->write(ucfirst($service) . ' service');
 
-            foreach ($requiredParamaters as $key => $value) {
+            foreach ($requiredParameters as $key => $value) {
                 if (is_array($value)) {
                     continue;
                 }
