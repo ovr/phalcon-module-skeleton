@@ -2,6 +2,7 @@
 
 namespace Api\Controller;
 
+use Exception;
 use Phalcon\Mvc\Controller;
 use Phalcon\Paginator\Adapter\QueryBuilder;
 use Catalog\Model\Product;
@@ -16,14 +17,14 @@ class ProductsController extends Controller
     {
         $limit = $this->request->get('limit', ['trim', 'int'], 100);
         if ($limit <= 0) {
-            throw new \Exception('Limit must be > 0');
+            throw new Exception('Limit must be > 0');
         } else if ($limit > 500) {
-            throw new \Exception('Limit must be <= 500');
+            throw new Exception('Limit must be <= 500');
         }
 
         $page = $this->request->get('page', ['trim', 'int'], 1);
         if ($page < 1) {
-            throw new \Exception('Page must be > 0');
+            throw new Exception('Page must be > 0');
         }
 
         $builder = $this->modelsManager->createBuilder()
@@ -63,7 +64,7 @@ class ProductsController extends Controller
     public function getAction($id)
     {
         if ($id <= 0) {
-            throw new \Exception('Wrong id passed', 500);
+            throw new Exception('Wrong id passed', 500);
         }
 
         /**
@@ -71,7 +72,7 @@ class ProductsController extends Controller
          */
         $entity = Product::findFirst($id);
         if (!$entity) {
-            throw new \Exception('Product not found', 404);
+            throw new Exception('Product not found', 404);
         }
 
         return array(
