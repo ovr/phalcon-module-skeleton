@@ -20,6 +20,7 @@ class IndexController extends Controller
      */
     public function errorAction()
     {
+        $this->response->setStatusCode(404, 'Not found');
         $this->logger->debug('Error to handle: ' . $this->request->getURI());
                 
         return array(
