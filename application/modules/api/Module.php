@@ -31,15 +31,7 @@ class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
             'controller' => 'index',
             'action'     => 'exception'
         ));
-
-        $router = $di->get('router');
-        $router->add('/api/users/get/{id:[a-Z]{1,11}}/', array(
-            'module' => 1,
-            'controller' => 2,
-            'action' => 'index',
-            'params' => 3
-        ));
-
+        
         $di->set('dispatcher', $dispatcher);
     }
 }
