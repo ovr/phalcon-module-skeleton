@@ -19,9 +19,8 @@ class ErrorController extends \Phalcon\Mvc\Controller
             $this->view->exception = $error;
 
             $code = $error->getCode();
-
-            if ($code < 400) {
-                $code = 400;
+            if ($code <= 0) {
+                $code = 500;
             }
         } else {
             $this->view->exception = false;
@@ -29,8 +28,10 @@ class ErrorController extends \Phalcon\Mvc\Controller
             $code = 404;
         }
 
-        $this->getDi()->getShared('response')->resetHeaders()->setStatusCode($code, null);
-        $this->getDI()->getShared('view')->setLayout('error');
+        $this->response->setStatusCode($code, null);
+        $this->view->setLayout('error');
+
+        $this->view->error = 'Страница не найдена';
 
         switch($code) {
             case 404:
