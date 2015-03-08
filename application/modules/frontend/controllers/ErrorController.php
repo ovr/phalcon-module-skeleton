@@ -35,9 +35,15 @@ class ErrorController extends \Phalcon\Mvc\Controller
 
         switch($code) {
             case 404:
+                if ($this->view->exception) {
+                    return $this->logger->debug((string) $this->view->exception->getMessage());
+                }
+
+                $this->logger->debug('Not found: ' . $this->request->getUri());
                 $this->view->error = 'Страница не найдена';
                 break;
             default:
+                $this->logger->critical((string) $this->view->exception->getMessage());
                 $this->view->error = 'Извините произошла ошибка. Попробуйте позже.';
                 break;
         }
