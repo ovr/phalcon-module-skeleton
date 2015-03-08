@@ -37,7 +37,7 @@ class ErrorController extends \Phalcon\Mvc\Controller
                 $this->view->error = 'Страница не найдена';
                 break;
             default:
-                $this->view->error = 'Неопредленная ошибка';
+                $this->view->error = 'Извините произошла ошибка. Попробуйте позже.';
                 break;
         }
     }
