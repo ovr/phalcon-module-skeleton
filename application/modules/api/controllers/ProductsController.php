@@ -54,7 +54,7 @@ class ProductsController extends Controller
         return array(
             'success' => true,
             'result' => array(
-                'users' => $result,
+                'products' => $result,
                 'pages' => $page->total_pages,
                 'total' => $page->total_items
             )
