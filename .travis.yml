@@ -18,7 +18,7 @@ before_script:
 
 install:
  - composer --prefer-dist install
- - mysql -uroot -e 'create database phalcon-module-skeleton charset=utf8 collate=utf8_unicode_ci;'
+ - mysql -uroot -e 'create database `phalcon-module-skeleton` charset=utf8 collate=utf8_unicode_ci;'
  - mysql -uroot phalcon-module-skeleton < ./scheme/dump.sql
 
 script:
