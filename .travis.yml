@@ -12,7 +12,7 @@ env:
   - PHALCON_VERSION="2.0.0"
 
 before_script:
-  - ./tests/install-php-extension.sh ${PHALCON_VERSION}
+  - ./tests/ci/install-php-extension.sh ${PHALCON_VERSION}
   - php -r 'echo \Phalcon\Version::get()."\n";'
 
 install:
