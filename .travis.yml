@@ -14,9 +14,17 @@ env:
 before_script:
   - ./tests/ci/install-php-extension.sh ${PHALCON_VERSION}
   - php -r 'echo \Phalcon\Version::get()."\n";'
+  - cp application/config/parameters.php.dist application/config/parameters.php
 
 install:
  - composer --prefer-dist install
+ - mysql -uroot -e 'create database phalcon-module-skeleton charset=utf8 collate=utf8_unicode_ci;'
+ - mysql -uroot phalcon-module-skeleton < ./scheme/dump.sql
 
 script:
  - vendor/bin/phpcs --standard=PSR2 --report=emacs --extensions=php --warning-severity=0 application/ library/ public/
+ - php public/index.php
+
+after_failure:
+  - sudo apt-get -qq install gdb
+  - ./tests/ci/after_failure.sh
