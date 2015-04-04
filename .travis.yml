@@ -22,6 +22,7 @@ install:
  - mysql -uroot phalcon-module-skeleton < ./scheme/dump.sql
 
 script:
+ - pwd
  - vendor/bin/phpcs --standard=PSR2 --report=emacs --extensions=php --warning-severity=0 application/ library/ public/
  - php public/index.php
 
