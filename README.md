@@ -101,4 +101,6 @@ You can see online demo on [http://phalcon-module.dmtry.me/](http://phalcon-modu
 License
 -------
 
-This project is open-sourced software licensed under the MIT License. See the LICENSE file for more information.
+This project is open-sourced software licensed under the MIT License.
+
+See the LICENSE file for more information.
