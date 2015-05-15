@@ -123,6 +123,13 @@ return array(
                     ));
                 }
 
+                $router->add('/catalog/category/{id:([0-9]{1,11})}/:params', array(
+                    'module' => 'catalog',
+                    'controller' => 'index',
+                    'action' => 'category',
+                    'id' => 1
+                ))->setName('user-index-view');
+
                 $router->add('/oauth/login/{id:([a-z]{1,20})}/:params', array(
                     'module' => 'oauth',
                     'controller' => 'index',

@@ -8,7 +8,7 @@
             <div class="panel-body">
                 <ul id="cat-navi2" class="nav nav-list ">
                     <?php foreach ($categories as $category) : ?>
-                        <li><a href="#"><?php echo $category->title; ?></a></li>
+                        <li><a href="/catalog/category/<?php echo $category->id; ?>/"><?php echo $category->title; ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div>

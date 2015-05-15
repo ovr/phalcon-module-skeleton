@@ -19,4 +19,9 @@ class IndexController extends Controller
         $this->view->categories = Category::find();
         $this->view->products = Product::find();
     }
+
+    public function categoryAction($categoryId)
+    {
+        var_dump($categoryId);
+    }
 }
