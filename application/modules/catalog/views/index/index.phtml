@@ -8,7 +8,11 @@
             <div class="panel-body">
                 <ul id="cat-navi2" class="nav nav-list ">
                     <?php foreach ($categories as $category) : ?>
-                        <li><a href="/catalog/category/<?php echo $category->id; ?>/"><?php echo $category->title; ?></a></li>
+                        <li>
+                            <a href="<?php echo $this->tag->url('catalog-category', ['id' => $category->id]); ?>">
+                                <?php echo $category->title; ?>
+                            </a>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -65,7 +69,11 @@
                     <div class="thumbnail">
                         <img src="http://placehold.it/250x250" alt="post image">
                         <div class="caption">
-                            <h3 class=""><?php echo $product->title; ?></h3>
+                            <h3 class="">
+                                <a href="<?php echo $this->tag->url('catalog-product-view', ['id' => $product->id]); ?>">
+                                    <?php echo $product->title; ?>
+                                </a>
+                            </h3>
                             <p class="">This project presents beautiful style graphic &amp; design. Bootstraptor provides modern features</p>
 
                             <div class="row">

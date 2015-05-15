@@ -128,7 +128,15 @@ return array(
                     'controller' => 'index',
                     'action' => 'category',
                     'id' => 1
-                ))->setName('user-index-view');
+                ))->setName('catalog-category');
+
+                $router->add('/catalog/product/{id:([0-9]{1,11})}/:params', array(
+                    'module' => 'catalog',
+                    'controller' => 'product',
+                    'action' => 'index',
+                    'id' => 1
+                ))->setName('catalog-product-view');
+
 
                 $router->add('/oauth/login/{id:([a-z]{1,20})}/:params', array(
                     'module' => 'oauth',
