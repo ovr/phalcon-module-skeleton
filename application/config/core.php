@@ -144,6 +144,12 @@ return array(
                     'action' => 'index',
                 ))->setName('oauth-index-index');
 
+                $router->add('/api/users/{id:([0-9]{1,32})}/:params', array(
+                    'module' => 'api',
+                    'controller' => 'users',
+                    'action' => 'get',
+                ));
+
                 $router->add('/user/{id:([0-9]{1,32})}/:params', array(
                     'module' => 'user',
                     'controller' => 'index',
