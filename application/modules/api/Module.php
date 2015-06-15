@@ -31,7 +31,10 @@ class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
             'controller' => 'index',
             'action'     => 'exception'
         ));
-        
         $di->set('dispatcher', $dispatcher);
+
+        /** @var \Phalcon\Http\ResponseInterface $response */
+        $response = $di->get('response');
+        $response->setHeader('Access-Control-Allow-Origin', '*');
     }
 }
