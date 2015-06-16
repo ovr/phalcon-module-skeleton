@@ -29,7 +29,7 @@ class UsersController extends Controller
 
         $builder = $this->modelsManager->createBuilder()
             ->from('User\Model\User')
-            ->orderBy('id DESC');
+            ->orderBy('id ASC');
 
         $paginator = new QueryBuilder(array(
             "builder" => $builder,

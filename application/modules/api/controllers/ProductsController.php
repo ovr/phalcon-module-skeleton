@@ -29,7 +29,7 @@ class ProductsController extends Controller
 
         $builder = $this->modelsManager->createBuilder()
             ->from('Catalog\Model\Product')
-            ->orderBy('id DESC');
+            ->orderBy('id ASC');
 
         $paginator = new QueryBuilder(array(
             "builder" => $builder,
