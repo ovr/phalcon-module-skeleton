@@ -23,9 +23,18 @@
                     <?php
                         $uri = $this->getDi()->getShared('request')->getUri();
                     ?>
-                    <li<?php echo ($uri == '/') ? ' class="active"' : ''; ?>><a href="/">Home</a></li>
-                    <li<?php echo ($uri == '/frontend/index/getting-started/') ? ' class="active"' : ''; ?>><a href="/frontend/index/getting-started/">Getting started</a></li>
-                    <li<?php echo ($uri == '/catalog') ? ' class="active"' : ''; ?>><a href="/catalog">Catalog</a></li>
+                    <li<?php echo ($uri == '/') ? ' class="active"' : ''; ?>>
+                        <a href="/">Home</a>
+                    </li>
+                    <li<?php echo ($uri == '/frontend/index/getting-started/') ? ' class="active"' : ''; ?>>
+                        <a href="/frontend/index/getting-started/">Getting started</a>
+                    </li>
+                    <li<?php echo ($uri == '/frontend/pretty-exception/') ? ' class="active"' : ''; ?>>
+                        <a href="/frontend/pretty-exception/">Pretty Exception</a>
+                    </li>
+                    <li<?php echo ($uri == '/catalog') ? ' class="active"' : ''; ?>>
+                        <a href="/catalog">Catalog</a>
+                    </li>
                     <li><a href="/admin">Admin</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
