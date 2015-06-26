@@ -35,6 +35,7 @@ class Module implements \Phalcon\Mvc\ModuleDefinitionInterface
 
         /** @var \Phalcon\Http\ResponseInterface $response */
         $response = $di->get('response');
-        $response->setHeader('Access-Control-Allow-Origin', '*');
+        $response->setHeader('Access-Control-Allow-Origin', '*')
+            ->setContentType('application/json', 'utf-8');
     }
 }
