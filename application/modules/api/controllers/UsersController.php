@@ -11,16 +11,11 @@ use User\Model\User;
  * Class UsersController
  * @package Api\Controller
  */
-class UsersController extends Controller
+class UsersController extends BaseController
 {
     public function indexAction()
     {
-        $limit = $this->request->get('limit', ['trim', 'int'], 100);
-        if ($limit <= 0) {
-            throw new Exception('Limit must be > 0');
-        } else if ($limit > 500) {
-            throw new Exception('Limit must be <= 500');
-        }
+        $limit = $this->getQueryLimit();
 
         $page = $this->request->get('page', ['trim', 'int'], 1);
         if ($page < 1) {
