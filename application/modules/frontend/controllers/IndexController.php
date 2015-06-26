@@ -8,5 +8,11 @@ class IndexController extends Controller
 {
     public function indexAction()
     {
+        //empty
+    }
+
+    public function gettingStartedAction()
+    {
+
     }
 }

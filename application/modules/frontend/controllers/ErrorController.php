@@ -28,7 +28,7 @@ class ErrorController extends \Phalcon\Mvc\Controller
             $code = 404;
         }
 
-        $this->response->setStatusCode($code, null);
+        $this->response->setStatusCode($code, 'test');
         $this->view->setLayout('error');
 
         $this->view->error = 'Страница не найдена';

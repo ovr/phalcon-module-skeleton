@@ -156,6 +156,12 @@ return array(
                     'action' => 'view',
                 ))->setName('user-index-view');
 
+                $router->add('/frontend/index/getting-started/:params', array(
+                    'module' => 'frontend',
+                    'controller' => 'index',
+                    'action' => 'gettingStarted'
+                ));
+
                 $router->notFound(array(
                     'module' => 'frontend',
                     'namespace' => 'Frontend\Controller',

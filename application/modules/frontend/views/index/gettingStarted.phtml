@@ -1,0 +1,47 @@
+<h2>How to install</h2>
+
+<h3>Using Composer (recommended)</h3>
+
+<p>Best way to install skeleton would be Composer, if you didn't install it</p>
+
+<p>Run code in the terminal:</p>
+
+<code>
+    composer create-project ovr/phalcon-module-skeleton=dev-master /path/to/install
+</code>
+
+<h3>Using Git</h3>
+
+<p>
+    First you need to clone the project, update vendors:
+</p>
+
+<code>
+git clone https://github.com/ovr/phalcon-module-skeleton.git ./project <br />
+cd project<br />
+composer update
+</code>
+
+
+<p>
+    Install vhost for your virtual server
+</p>
+
+<code>
+    cp ./docs/configs/nginx.phalcony.local.conf /etc/nginx/sites-enabled/you.host.conf
+</code>
+
+
+<p>
+    Don`t forget to edit nginx config and restart nginx:
+</p>
+
+<code>
+    nano /etc/nginx/sites-enabled/you.host.conf<br />
+    sudo service nginx restart
+</code>
+
+<br />
+<br />
+<br />
+<br />
