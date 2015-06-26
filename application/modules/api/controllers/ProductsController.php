@@ -16,11 +16,7 @@ class ProductsController extends BaseController
     public function indexAction()
     {
         $limit = $this->getQueryLimit();
-
-        $page = $this->request->get('page', ['trim', 'int'], 1);
-        if ($page < 1) {
-            throw new Exception('Page must be > 0');
-        }
+        $page = $this->getQueryPage();
 
         $builder = $this->modelsManager->createBuilder()
             ->from('Catalog\Model\Product')
